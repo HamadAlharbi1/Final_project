@@ -1,14 +1,32 @@
 class Qumash_Detail {
-  static List<Qumash_Details> reports1 = [
+  static List<Qumash_Details> List_of_Qumashs = [
     Qumash_Details(
-        Image_URL: '300',
-        more_details2: '5 ',
-        Rate: '28',
+        Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
+        country_of_manufacture: 'كوري',
+        Rate: '4.3',
         id: '1',
-        Qumash_name: "علي العبدلي",
-        Describtion: '200',
-        The_ability: '2500',
-        more_details1: '4 '),
+        Qumash_name: "قماش كوري نقشة مربعات أبيض",
+        Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+        The_ability: 'متوفر',
+        price: 180),
+    Qumash_Details(
+        Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
+        country_of_manufacture: 'كوري',
+        Rate: '4.3',
+        id: '2',
+        Qumash_name: "قماش كوري نقشة مربعات أبيض",
+        Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+        The_ability: 'متوفر',
+        price: 180),
+    Qumash_Details(
+        Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
+        country_of_manufacture: 'كوري',
+        Rate: '4.3',
+        id: '3',
+        Qumash_name: "قماش كوري نقشة مربعات أبيض",
+        Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+        The_ability: 'متوفر',
+        price: 180),
   ];
 }
 
@@ -19,8 +37,8 @@ class Qumash_Details {
   String Rate;
   String The_ability;
   String Image_URL;
-  String more_details1;
-  String more_details2;
+  double price;
+  String country_of_manufacture;
 
   Qumash_Details({
     required this.id,
@@ -29,8 +47,8 @@ class Qumash_Details {
     required this.Rate,
     required this.The_ability,
     required this.Image_URL,
-    required this.more_details1,
-    required this.more_details2,
+    required this.price,
+    required this.country_of_manufacture,
   });
   factory Qumash_Details.fromMap(Map<String, dynamic> map) {
     return Qumash_Details(
@@ -39,8 +57,8 @@ class Qumash_Details {
       Rate: map['Rate'],
       The_ability: map['The_ability'],
       Image_URL: map['Image_URL'],
-      more_details1: map['more_details1'],
-      more_details2: map['more_details2'],
+      price: map['more_details1'],
+      country_of_manufacture: map['more_details2'],
       id: map['id'],
     );
   }
@@ -49,8 +67,8 @@ class Qumash_Details {
       'Qumash_name': Qumash_name, //
       'Describtion': Describtion, //
       'Rate': Rate, //
-      'more_details1': more_details1, //
-      'more_details2': more_details2, //
+      'more_details1': price, //
+      'more_details2': country_of_manufacture, //
       'The_ability': The_ability,
       'Image_URL': Image_URL,
       'id': id,

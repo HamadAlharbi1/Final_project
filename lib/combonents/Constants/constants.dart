@@ -8,7 +8,7 @@ class Colors_and_Dimentions {
   static const double fontsize_12 = 12;
   static const double Circular_border_12 = 12;
   static const double Padding_12 = 12;
-   static const double Padding_4 = 4;
+  static const double Padding_4 = 4;
   static const double pic_H = 150;
   static const double pic_W = 150;
   static const double Hight_16 = 16;
@@ -32,7 +32,12 @@ class FP_textSTyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text_content,
-      style: TextStyle(color: text_color, fontSize: font_size, fontWeight: font_weight),
+      style: TextStyle(
+        color: text_color,
+        fontSize: font_size,
+        fontWeight: font_weight,
+        overflow: TextOverflow.clip,
+      ),
     );
   }
 }
