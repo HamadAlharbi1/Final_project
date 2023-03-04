@@ -1,5 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:final_project/contents/modols.dart';
+import 'package:final_project/combonents/Tailor_Card.dart';
 import 'package:final_project/pages/Home_Page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +12,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-  
-
     super.initState();
   }
 
