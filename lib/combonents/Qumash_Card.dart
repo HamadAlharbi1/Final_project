@@ -16,11 +16,10 @@ class Qumash_Card extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12),
-              color: Color.fromARGB(255, 247, 231, 231)),
+              color: Colors_and_Dimentions.containercolor),
           padding: const EdgeInsets.all(Colors_and_Dimentions.Padding_4),
           child: Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   child: Padding(
@@ -36,76 +35,42 @@ class Qumash_Card extends StatelessWidget {
                         const SizedBox(
                           height: Colors_and_Dimentions.Hight_16,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: Text(qumash.Describtion,
-                                  style: TextStyle(
-                                    color: Colors_and_Dimentions.fontcolor2,
-                                    fontSize: Colors_and_Dimentions.fontsize_12,
-                                  ),
-                                  textAlign: TextAlign.right,
-                                  overflow: TextOverflow.clip),
-                            ),
-                            SizedBox(
-                              width: Colors_and_Dimentions.Hight_16,
-                            ),
-                            const FP_textSTyle(
-                              text_content: "الوصف",
-                              font_weight: FontWeight.bold,
-                              font_size: Colors_and_Dimentions.fontsize_12,
-                              text_color: Colors_and_Dimentions.fontcolor2,
-                            ),
-                          ],
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Expanded(
+                                child: Text(qumash.Describtion,
+                                    style: const TextStyle(
+                                      color: Colors_and_Dimentions.fontcolor2,
+                                      fontSize: Colors_and_Dimentions.fontsize_12,
+                                    ),
+                                    textAlign: TextAlign.right,
+                                    overflow: TextOverflow.clip),
+                              ),
+                              const SizedBox(
+                                width: Colors_and_Dimentions.Hight_16,
+                              ),
+                              const FP_textSTyle(
+                                text_content: "الوصف",
+                                font_weight: FontWeight.bold,
+                                font_size: Colors_and_Dimentions.fontsize_12,
+                                text_color: Colors_and_Dimentions.fontcolor2,
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(
                           height: Colors_and_Dimentions.Hight_16,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Column(
                               children: [
                                 FP_textSTyle(
                                   text_content: qumash.Rate,
-                                  font_size: Colors_and_Dimentions.fontsize_8,
-                                  text_color: Colors_and_Dimentions.fontcolor2,
-                                ),
-                                const SizedBox(
-                                  height: Colors_and_Dimentions.Hight_16,
-                                ),
-                                FP_textSTyle(
-                                  text_content: qumash.The_ability,
-                                  font_size: Colors_and_Dimentions.fontsize_8,
-                                  text_color: Colors_and_Dimentions.fontcolor2,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: const [
-                                FP_textSTyle(
-                                  text_content: 'التقييم',
-                                  font_weight: FontWeight.bold,
                                   font_size: Colors_and_Dimentions.fontsize_12,
-                                  text_color: Colors_and_Dimentions.fontcolor2,
-                                ),
-                                SizedBox(
-                                  height: Colors_and_Dimentions.Hight_16,
-                                ),
-                                FP_textSTyle(
-                                  text_content: 'التوفر',
-                                  font_weight: FontWeight.bold,
-                                  font_size: Colors_and_Dimentions.fontsize_12,
-                                  text_color: Colors_and_Dimentions.fontcolor2,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                FP_textSTyle(
-                                  text_content: qumash.country_of_manufacture,
-                                  font_size: Colors_and_Dimentions.fontsize_8,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                                 const SizedBox(
@@ -113,15 +78,18 @@ class Qumash_Card extends StatelessWidget {
                                 ),
                                 FP_textSTyle(
                                   text_content: '${qumash.price}',
-                                  font_size: Colors_and_Dimentions.fontsize_8,
+                                  font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                               ],
                             ),
+                            const SizedBox(
+                              width: Colors_and_Dimentions.Hight_16,
+                            ),
                             Column(
                               children: const [
                                 FP_textSTyle(
-                                  text_content: 'بلد الصنع',
+                                  text_content: 'التقييم',
                                   font_weight: FontWeight.bold,
                                   font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
@@ -142,6 +110,9 @@ class Qumash_Card extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                const SizedBox(
+                  width: 32,
                 ),
                 Container(
                   clipBehavior: Clip.hardEdge,

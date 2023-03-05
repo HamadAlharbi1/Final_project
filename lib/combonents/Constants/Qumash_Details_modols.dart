@@ -5,7 +5,7 @@ class Qumash_Detail {
         country_of_manufacture: 'كوري',
         Rate: '4.3',
         id: '1',
-        Qumash_name: "قماش كوري نقشة مربعات أبيض",
+        Qumash_name: "قماش كوري ",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
         price: 180),

@@ -1,3 +1,5 @@
+///------------------------ معلومات الخياطين ----------------------------
+
 class Tailor_Detail {
   static List<Tailor_Details> List_of_tailors = [
     Tailor_Details(
@@ -23,12 +25,12 @@ class Tailor_Detail {
 }
 
 class Tailor_Details {
-  String Tailor_name; //1
+  String Tailor_name;
   String id;
-  String location; //1
-  String Rate; //1
-  String The_ability; //1
-  String Image_URL; //1
+  String location;
+  String Rate;
+  String The_ability;
+  String Image_URL;
   String avarge_period;
   String more_details2;
 
@@ -56,11 +58,11 @@ class Tailor_Details {
   }
   Map<String, dynamic> toMap() {
     return {
-      'Tailor_name': Tailor_name, //
-      'location': location, //
-      'Rate': Rate, //
-      'avarge_period': avarge_period, //
-      'more_details2': more_details2, //
+      'Tailor_name': Tailor_name,
+      'location': location,
+      'Rate': Rate,
+      'avarge_period': avarge_period,
+      'more_details2': more_details2,
       'The_ability': The_ability,
       'Image_URL': Image_URL,
       'id': id,
