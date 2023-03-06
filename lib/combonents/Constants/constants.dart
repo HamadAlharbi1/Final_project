@@ -8,6 +8,7 @@ class Colors_and_Dimentions {
   static const main_continer_color = Color(0xFFF1F0F0);
   static const container_color = Color(0xFF796763);
   static const font_color = Color(0xFF443830);
+  static const icon_color = Color(0xffCC7373);
   static const double fontsize_8 = 8;
   static const double fontsize_12 = 12;
   static const double Hight_70 = 70;
