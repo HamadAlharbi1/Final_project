@@ -27,17 +27,17 @@ class _MaqasatyState extends State<Maqasaty> {
               leading: InkWell(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return fillNewMaqas();
+                      return const fillNewMaqas();
                     }));
                   },
-                  child: Icon(Icons.add)),
+                  child: const Icon(Icons.add)),
               automaticallyImplyLeading: false,
               actions: [
                 InkWell(
                   onTap: () => Navigator.pop(context),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: const Icon(
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
                       Icons.arrow_forward_ios,
                       color: Colors_and_Dimentions.icon_color,
                     ),
@@ -64,34 +64,34 @@ class _MaqasatyState extends State<Maqasaty> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
+                  boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
               width: double.infinity,
-              child: const Column(
+              child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'اسم المقاس',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [Text(' عرض الرقبة'), Text('الطول')],
+                    children: const [Text(' عرض الرقبة'), Text('الطول')],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [Text('عرض الكتف'), Text(' عرض الصدر ')],
+                    children: const [Text('عرض الكتف'), Text(' عرض الصدر ')],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [Text('طول الكم')],
+                    children: const [Text('طول الكم')],
                   )
                 ],
               ),
