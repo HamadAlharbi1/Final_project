@@ -2,12 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/pages/Home_Page.dart';
-<<<<<<< HEAD
-import 'package:final_project/pages/tafseel_details/1yaqa.dart';
-
-=======
-import 'package:final_project/pages/tafseel_details/yaqa.dart';
->>>>>>> 9dc034215dceec257fc5c9462a2de4ef87b78083
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
