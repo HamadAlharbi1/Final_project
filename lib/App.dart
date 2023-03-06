@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
-import 'package:final_project/pages/tafseel_details/yaqa.dart';
+import 'package:final_project/pages/Home_Page.dart';
+import 'package:final_project/pages/Orders_Pages.dart';
+import 'package:final_project/pages/tafseel_details/1yaqa.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -20,6 +22,7 @@ class _MyAppState extends State<MyApp> {
       final resDoc = showroomCollection.doc(i.id);
       resDoc.set(i.toMap());
     }
+
     for (final i in Qumash_Detail.List_of_Qumashs) {
       final showroomCollection = FirebaseFirestore.instance.collection('List_of_Qumashs');
       final resDoc = showroomCollection.doc(i.id);
@@ -30,7 +33,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Yaqa(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
