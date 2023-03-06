@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/pages/Home_Page.dart';
+import 'package:final_project/pages/login_page.dart';
+import 'package:final_project/pages/maqasaty.dart';
+import 'package:final_project/pages/profile_page.dart';
 import 'package:final_project/pages/tafseel_details/yaqa.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Yaqa(),
+      home: Maqasaty(),
       debugShowCheckedModeBanner: false,
     );
   }
