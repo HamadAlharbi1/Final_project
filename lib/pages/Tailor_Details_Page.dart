@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
+import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
+import 'package:final_project/pages/tafseel_details/1yaqa.dart';
 import 'package:flutter/material.dart';
 
 class Tailor_Details_Page extends StatefulWidget {
@@ -18,12 +20,16 @@ class Tailor_Details_Page extends StatefulWidget {
 class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
   StreamSubscription? listener_of_Tailors;
   StreamSubscription? listener_of_Qumashs;
+  StreamSubscription? listener_of_order_details;
   List<Tailor_Details> tailors = [];
   List<Qumash_Details> qumashs = [];
+  List<Tafseel_Details> order_details = [];
+
   @override
   void initState() {
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
+    listener_of_order_details?.cancel();
     super.initState();
     listenToQumashs();
     listenToTailors();
@@ -37,6 +43,19 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
         newList.add(tailor);
       }
       tailors = newList;
+      setState(() {});
+    });
+  }
+
+  listenToorder_details() {
+    listener_of_order_details ??=
+        FirebaseFirestore.instance.collection('order_details').snapshots().listen((collection) {
+      List<Tafseel_Details> newList = [];
+      for (final doc in collection.docs) {
+        final orderDetail = Tafseel_Details.fromMap(doc.data());
+        newList.add(orderDetail);
+      }
+      order_details = newList;
       setState(() {});
     });
   }
@@ -204,17 +223,45 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: Colors_and_Dimentions.Padding_4,
-              ),
+              const SizedBox(height: 12),
               Container(
                 color: Colors_and_Dimentions.container_color,
                 height: 1,
               ),
+              const SizedBox(height: 12),
               SizedBox(
                 height: 600,
                 child: ListView(
-                  children: [for (var qumash in qumashs) Qumash_Card(qumash: qumash)],
+                  children: [
+                    for (var qumash in qumashs)
+                      InkWell(
+                          onTap: () {
+                            final CollectionReference collectionRef =
+                                FirebaseFirestore.instance.collection('order_details');
+
+                            collectionRef.doc('1').set({
+                              'id': '',
+                              'tailor': widget.tailor.Tailor_name,
+                              'qumash': qumash.Qumash_name,
+                              'qumash_D': qumash.Describtion,
+                              'qumash_IMG': qumash.Image_URL,
+                              'Yaqa': '',
+                              'Jubzor': '',
+                              'Zorar': '',
+                              'Kapak': '',
+                              'Tallstyle': '',
+                              'tadrizestyle': '',
+                            }).then((value) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Yaqa(), // pass the document ID to the next page
+                                ),
+                              );
+                            }).catchError((error) => print('Failed to add document: $error'));
+                          },
+                          child: Qumash_Card(qumash: qumash))
+                  ],
                 ),
               ),
             ],

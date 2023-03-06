@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/combonents/Tailor_Card.dart';
 import 'package:final_project/pages/Tailor_Details_Page.dart';
+import 'package:final_project/pages/fill_new_maqas.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -57,6 +60,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors_and_Dimentions.BK_color,
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: SizedBox(
@@ -75,7 +79,6 @@ class _HomePageState extends State<HomePage> {
                     item: i,
                   ),
                 ),
-              for (var qumash in qumashs) Qumash_Card(qumash: qumash)
             ],
           ),
         ),
