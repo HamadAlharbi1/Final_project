@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 
 class tafseel_details extends StatelessWidget {
   final String title;
-  final Function MY_ontap;
+  void Function()? MY_ontap1;
+  void Function()? MY_ontap2;
+  void Function()? MY_ontap3;
   final String image_1;
   final String image_2;
+  final String D_1;
+  final String D_2;
   final String image_3;
-  const tafseel_details({
-    required this.MY_ontap,
+
+  tafseel_details({
+    super.key,
+    required this.MY_ontap1,
+    required this.MY_ontap2,
+    this.MY_ontap3,
     required this.image_1,
     required this.title,
     this.image_2 = '',
     this.image_3 = '',
-    super.key,
+    this.D_2 = '',
+    this.D_1 = '',
   });
 
   @override
@@ -43,46 +52,52 @@ class tafseel_details extends StatelessWidget {
                     height: Colors_and_Dimentions.Hight_70,
                   ),
                   InkWell(
-                    onTap: MY_ontap(),
-                    child: Container(
-                      clipBehavior: Clip.hardEdge,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
-                      height: Colors_and_Dimentions.pic_H,
-                      width: Colors_and_Dimentions.pic_W,
-                      child: Image.network(
-                        image_1,
-                        fit: BoxFit.cover,
-                      ),
+                    onTap: MY_ontap1,
+                    child: Column(
+                      children: [
+                        Container(
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
+                          height: Colors_and_Dimentions.pic_H,
+                          width: Colors_and_Dimentions.pic_W,
+                          child: Image.network(
+                            image_1,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        FP_textSTyle(
+                          text_content: D_1,
+                        )
+                      ],
                     ),
                   ),
                   const SizedBox(
                     height: Colors_and_Dimentions.Hight_70,
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
-                    height: Colors_and_Dimentions.pic_H,
-                    width: Colors_and_Dimentions.pic_W,
-                    child: Image.network(
-                      image_2,
-                      fit: BoxFit.cover,
+                  InkWell(
+                    onTap: MY_ontap2,
+                    child: Column(
+                      children: [
+                        Container(
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
+                          height: Colors_and_Dimentions.pic_H,
+                          width: Colors_and_Dimentions.pic_W,
+                          child: Image.network(
+                            image_2,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        FP_textSTyle(
+                          text_content: D_2,
+                        )
+                      ],
                     ),
                   ),
                   const SizedBox(
                     height: Colors_and_Dimentions.Hight_70,
-                  ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
-                    height: Colors_and_Dimentions.pic_H,
-                    width: Colors_and_Dimentions.pic_W,
-                    child: Image.network(
-                      image_3,
-                      fit: BoxFit.cover,
-                    ),
                   ),
                 ],
               ),

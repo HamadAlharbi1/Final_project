@@ -40,6 +40,7 @@ class FP_textSTyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text_content,
+      textDirection: TextDirection.rtl,
       style: TextStyle(
         color: text_color,
         fontSize: font_size,

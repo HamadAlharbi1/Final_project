@@ -1,5 +1,7 @@
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
+import 'package:final_project/combonents/Qumash_description.dart';
+import 'package:final_project/combonents/img_container.dart';
 import 'package:flutter/material.dart';
 
 class Qumash_Card extends StatelessWidget {
@@ -35,31 +37,7 @@ class Qumash_Card extends StatelessWidget {
                         const SizedBox(
                           height: Colors_and_Dimentions.Hight_16,
                         ),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Expanded(
-                                child: Text(qumash.Describtion,
-                                    style: const TextStyle(
-                                      color: Colors_and_Dimentions.fontcolor2,
-                                      fontSize: Colors_and_Dimentions.fontsize_12,
-                                    ),
-                                    textAlign: TextAlign.right,
-                                    overflow: TextOverflow.clip),
-                              ),
-                              const SizedBox(
-                                width: Colors_and_Dimentions.Hight_16,
-                              ),
-                              const FP_textSTyle(
-                                text_content: "الوصف",
-                                font_weight: FontWeight.bold,
-                                font_size: Colors_and_Dimentions.fontsize_12,
-                                text_color: Colors_and_Dimentions.fontcolor2,
-                              ),
-                            ],
-                          ),
-                        ),
+                        qumash_des_container(qumash_des: qumash.Describtion),
                         const SizedBox(
                           height: Colors_and_Dimentions.Hight_16,
                         ),
@@ -114,22 +92,43 @@ class Qumash_Card extends StatelessWidget {
                 const SizedBox(
                   width: 32,
                 ),
-                Container(
-                  clipBehavior: Clip.hardEdge,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12)),
-                  height: Colors_and_Dimentions.pic_H,
-                  width: Colors_and_Dimentions.pic_W,
-                  child: Image.network(
-                    qumash.Image_URL,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                IMg_container(Img_URL: qumash.Image_URL),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+class qumash_des_container extends StatelessWidget {
+  final String qumash_des;
+  const qumash_des_container({
+    super.key,
+    required this.qumash_des,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Qumash_Description(
+            qumash_Description: qumash_des,
+          ),
+          const SizedBox(
+            width: Colors_and_Dimentions.Hight_16,
+          ),
+          const FP_textSTyle(
+            text_content: "الوصف",
+            font_weight: FontWeight.bold,
+            font_size: Colors_and_Dimentions.fontsize_12,
+            text_color: Colors_and_Dimentions.fontcolor2,
+          ),
+        ],
+      ),
     );
   }
 }
