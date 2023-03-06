@@ -16,10 +16,15 @@ class Qumash_Card extends StatelessWidget {
           height: Colors_and_Dimentions.Hight_16,
         ),
         Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Colors_and_Dimentions.Circular_border_12),
-              color: Colors_and_Dimentions.containercolor),
-          padding: const EdgeInsets.all(Colors_and_Dimentions.Padding_4),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(boxShadow: [
+            // BoxShadow(
+            //   color: const Color.fromARGB(255, 35, 35, 35).withOpacity(0.33),
+            //   spreadRadius: 2,
+            //   blurRadius: 5,
+            //   offset: const Offset(0, 3), // changes position of shadow
+            // ),
+          ], borderRadius: BorderRadius.circular(12), color: Colors_and_Dimentions.main_continer_color),
           child: Container(
             child: Row(
               children: [
@@ -48,7 +53,6 @@ class Qumash_Card extends StatelessWidget {
                               children: [
                                 FP_textSTyle(
                                   text_content: qumash.Rate,
-                                  font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                                 const SizedBox(
@@ -56,7 +60,6 @@ class Qumash_Card extends StatelessWidget {
                                 ),
                                 FP_textSTyle(
                                   text_content: '${qumash.price}',
-                                  font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                               ],
@@ -69,7 +72,6 @@ class Qumash_Card extends StatelessWidget {
                                 FP_textSTyle(
                                   text_content: 'التقييم',
                                   font_weight: FontWeight.bold,
-                                  font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                                 SizedBox(
@@ -78,7 +80,6 @@ class Qumash_Card extends StatelessWidget {
                                 FP_textSTyle(
                                   text_content: 'السعر ',
                                   font_weight: FontWeight.bold,
-                                  font_size: Colors_and_Dimentions.fontsize_12,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                               ],

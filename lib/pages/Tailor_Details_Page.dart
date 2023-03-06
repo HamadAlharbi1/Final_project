@@ -223,13 +223,12 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: Colors_and_Dimentions.Padding_4,
-              ),
+              const SizedBox(height: 12),
               Container(
                 color: Colors_and_Dimentions.container_color,
                 height: 1,
               ),
+              const SizedBox(height: 12),
               SizedBox(
                 height: 600,
                 child: ListView(
