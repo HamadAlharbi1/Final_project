@@ -2,6 +2,7 @@ import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
 import 'package:final_project/pages/maqasaty.dart';
+import 'package:final_project/pages/qyas_khiadhti.dart';
 import 'package:flutter/material.dart';
 
 class CardCartWidget extends StatefulWidget {
@@ -72,8 +73,12 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                     title: const Center(
                         child: FP_textSTyle(font_weight: FontWeight.bold, text_content: 'اطلب خياط لاخذ مقاساتك ')),
                     onTap: () {
-                      // Perform some action when Option 2 is selected
-                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const qyas_khiadhti(), // pass the document ID to the next page
+                        ),
+                      );
                     },
                   ),
                 ),
