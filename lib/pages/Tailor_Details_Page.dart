@@ -245,6 +245,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               'qumash': qumash.Qumash_name,
                               'qumash_D': qumash.Describtion,
                               'qumash_IMG': qumash.Image_URL,
+                              'qumash_Price': qumash.price,
                               'Yaqa': '',
                               'Jubzor': '',
                               'Zorar': '',

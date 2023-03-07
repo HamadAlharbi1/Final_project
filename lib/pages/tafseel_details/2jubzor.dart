@@ -32,7 +32,7 @@ class _JubzorState extends State<Jubzor> {
               .update({
                 'Jubzor': 'مربع',
               })
-              .then((value) => Navigator.push(
+              .then((value) => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Zorar(),

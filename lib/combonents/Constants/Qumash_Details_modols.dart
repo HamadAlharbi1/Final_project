@@ -8,7 +8,7 @@ class Qumash_Detail {
         Qumash_name: "قماش كوري ",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
-        price: 180),
+        price: '230'),
     Qumash_Details(
         Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
         country_of_manufacture: 'كوري',
@@ -17,7 +17,7 @@ class Qumash_Detail {
         Qumash_name: "قماش ياباني",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
-        price: 180),
+        price: '150'),
     Qumash_Details(
         Image_URL: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082402840603021413/image_20_1.png',
         country_of_manufacture: 'كوري',
@@ -26,7 +26,7 @@ class Qumash_Detail {
         Qumash_name: "قماش ماليزي",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
-        price: 180),
+        price: '168'),
   ];
 }
 
@@ -37,7 +37,7 @@ class Qumash_Details {
   String Rate;
   String The_ability;
   String Image_URL;
-  double price;
+  String price;
   String country_of_manufacture;
 
   Qumash_Details({
