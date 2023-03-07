@@ -21,8 +21,8 @@ class _MaqasatyState extends State<Maqasaty> {
   void initState() {
     final FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
-    String _uid = user!.uid;
-    print(_uid);
+    String uid = user!.uid;
+    print(uid);
     super.initState();
   }
 
@@ -201,9 +201,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
+            children: [
               Text(
-                widget.tall_show == null ? '' : widget.tall_show,
+                widget.tall_show ?? '',
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
@@ -218,12 +218,13 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
+            children: [
               Text(
-                widget.neck_weidthSow == null ? '' : widget.neck_weidthSow,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                widget.neck_weidthSow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
-              Text(
+              const Text(
                 ':عرض الرقبة',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
@@ -236,8 +237,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                widget.shoulder_weidthShow == null ? '' : widget.shoulder_weidthShow,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                widget.shoulder_weidthShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':عرض الكتف',
@@ -252,8 +254,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                widget.chest_weidthShow == null ? '' : widget.chest_weidthShow,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                widget.chest_weidthShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':عرض الصدر',
@@ -268,8 +271,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                widget.km_tallShow == null ? '' : widget.km_tallShow,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                widget.km_tallShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':طول الكم',
@@ -299,7 +303,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
                 fontSize: 20,
               ),
             ),
-            content: SizedBox(
+            content: const SizedBox(
               width: 100,
             ),
             actions: [
