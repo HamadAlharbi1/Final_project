@@ -20,15 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _images = [
-    'https://example.com/image1.jpg',
-    'https://example.com/image2.jpg',
-    'https://example.com/image3.jpg',
-  ];
-  final int _currentIndex = 0;
-  Timer? _timer;
+
   List<String> CityList = ['Riyadh', 'الدمام', 'ينبع', 'المدينة', 'الرياض'];
   String? categoryfilter1;
+
   StreamSubscription? listener_of_Tailors;
   StreamSubscription? listener_of_Qumashs;
   List<Tailor_Details> tailors = [];
