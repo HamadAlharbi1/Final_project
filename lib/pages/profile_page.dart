@@ -3,6 +3,7 @@ import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../combonents/Drawer/DrawerWidget.dart';
 import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -48,32 +49,24 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffeaeaea),
+      backgroundColor: const Color(0xffeaeaea),
       appBar: AppBar(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25.0), bottomRight: Radius.circular(25.0))),
         elevation: 0,
-        backgroundColor: Colors.black.withOpacity(0.1),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
         centerTitle: true,
-        title: const Text(
-          'بيانات الحساب',
-          style: TextStyle(
-            shadows: [
-              BoxShadow(offset: Offset(0, 5), color: Color.fromARGB(47, 151, 226, 247), spreadRadius: 1, blurRadius: 7)
-            ],
-            fontFamily: 'JosefinSans',
-            color: Colors_and_Dimentions.font_color,
-            fontSize: 26,
-            fontWeight: FontWeight.w900,
-          ),
+        title: Image.network(
+          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
+          fit: BoxFit.contain,
         ),
       ),
+      //drawer
+      endDrawer: const DrawerWidget(),
       body: Center(
         child: Container(
-          margin: EdgeInsets.all(24),
+          margin: const EdgeInsets.all(24),
           width: double.infinity,
           decoration: BoxDecoration(
-            boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 0.6, spreadRadius: 0.8)],
+            boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 0.6, spreadRadius: 0.8)],
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
           ),
@@ -108,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       SizedBox(
                         width: 4,
                       ),
@@ -123,14 +116,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 8),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
+                          children: const [
                             Text(
                               'بيانات التواصل ',
                               style: TextStyle(
