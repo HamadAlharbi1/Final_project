@@ -93,7 +93,7 @@ class _MaqasatyState extends State<Maqasaty> {
                         );
                       });
                 } else {
-                  return const Column(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
@@ -195,7 +195,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           const SizedBox(
             height: 18,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
@@ -207,7 +207,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           const SizedBox(
             height: 8,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(

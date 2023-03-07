@@ -11,12 +11,7 @@ class pay_page extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-            Color.fromARGB(255, 44, 44, 44).withOpacity(0.8),
-            Color.fromARGB(255, 15, 15, 15),
-          ]),
-        ),
+        decoration: BoxDecoration(),
         child: ListView(padding: const EdgeInsets.all(25), children: [
           Container(
             clipBehavior: Clip.hardEdge,
