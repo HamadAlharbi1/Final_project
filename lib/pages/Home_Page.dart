@@ -11,6 +11,8 @@ import 'package:final_project/pages/Tailor_Details_Page.dart';
 import 'package:final_project/pages/fill_new_maqas.dart';
 import 'package:flutter/material.dart';
 
+import '../combonents/Drawer/DrawerWidget.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -19,6 +21,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _images = [
+    'https://example.com/image1.jpg',
+    'https://example.com/image2.jpg',
+    'https://example.com/image3.jpg',
+  ];
+  int _currentIndex = 0;
+  Timer? _timer;
+
   StreamSubscription? listener_of_Tailors;
   StreamSubscription? listener_of_Qumashs;
   List<Tailor_Details> tailors = [];
@@ -60,7 +70,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors_and_Dimentions.BK_color,
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: SizedBox(
@@ -79,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                     item: i,
                   ),
                 ),
+              for (var qumash in qumashs) Qumash_Card(qumash: qumash)
             ],
           ),
         ),
