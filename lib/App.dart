@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
-<<<<<<< HEAD
 import 'package:final_project/pages/Home_Page.dart';
-=======
+import 'package:final_project/pages/maqasaty.dart';
 import 'package:final_project/pages/profile_page.dart';
->>>>>>> 9a93647a609bd275f659d197d34cf3e074df283d
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -34,11 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-<<<<<<< HEAD
       home: HomePage(),
-=======
-      home: ProfilePage(),
->>>>>>> 9a93647a609bd275f659d197d34cf3e074df283d
       debugShowCheckedModeBanner: false,
     );
   }
