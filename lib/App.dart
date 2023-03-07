@@ -31,8 +31,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
 
-      home: HomePage(),
-
       debugShowCheckedModeBanner: false,
     );
   }

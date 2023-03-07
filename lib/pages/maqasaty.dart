@@ -21,8 +21,8 @@ class _MaqasatyState extends State<Maqasaty> {
   void initState() {
     final FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
-    String uid = user!.uid;
-    print(uid);
+    _uid = user!.uid;
+
     super.initState();
   }
 
