@@ -111,7 +111,7 @@ class _after_TDState extends State<after_TD> {
                                       ),
                                       Container(
                                           alignment: Alignment.centerLeft,
-                                          width: 250,
+                                          width: 220,
                                           child: FP_textSTyle(text_content: i.qumash_D)),
                                     ],
                                   ),
@@ -127,13 +127,26 @@ class _after_TDState extends State<after_TD> {
                                 height: 32,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  FP_textSTyle(
-                                    font_size: 32,
-                                    font_weight: FontWeight.bold,
-                                    text_content: i.qumash_Price,
+                                  Row(
+                                    children: [
+                                      const FP_textSTyle(
+                                        font_size: 32,
+                                        font_weight: FontWeight.bold,
+                                        text_content: 'ريال',
+                                      ),
+                                      FP_textSTyle(
+                                        font_size: 32,
+                                        font_weight: FontWeight.bold,
+                                        text_content: i.qumash_Price,
+                                      ),
+                                    ],
                                   ),
+                                  const FP_textSTyle(
+                                    text_content: 'اعادة طلب ',
+                                    font_weight: FontWeight.w600,
+                                  )
                                 ],
                               ),
                             ],

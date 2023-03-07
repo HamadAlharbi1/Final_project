@@ -8,7 +8,7 @@ class Qumash_Detail {
         Qumash_name: "قماش كوري ",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
-        price: '230'),
+        price: ' 230'),
     Qumash_Details(
         Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
         country_of_manufacture: 'كوري',

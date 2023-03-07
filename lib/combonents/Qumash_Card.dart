@@ -17,7 +17,7 @@ class Qumash_Card extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(boxShadow: [
+          decoration: BoxDecoration(boxShadow: const [
             // BoxShadow(
             //   color: const Color.fromARGB(255, 35, 35, 35).withOpacity(0.33),
             //   spreadRadius: 2,
@@ -59,7 +59,7 @@ class Qumash_Card extends StatelessWidget {
                                   height: Colors_and_Dimentions.Hight_16,
                                 ),
                                 FP_textSTyle(
-                                  text_content: '${qumash.price}',
+                                  text_content: qumash.price,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                               ],
@@ -122,12 +122,12 @@ class qumash_des_container extends StatelessWidget {
           const SizedBox(
             width: Colors_and_Dimentions.Hight_16,
           ),
-          const FP_textSTyle(
-            text_content: "الوصف",
-            font_weight: FontWeight.bold,
-            font_size: Colors_and_Dimentions.fontsize_12,
-            text_color: Colors_and_Dimentions.fontcolor2,
-          ),
+          // const FP_textSTyle(
+          //   text_content: "الوصف",
+          //   font_weight: FontWeight.bold,
+          //   font_size: Colors_and_Dimentions.fontsize_12,
+          //   text_color: Colors_and_Dimentions.fontcolor2,
+          // ),
         ],
       ),
     );
