@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/text_field1.dart';
+import 'package:final_project/pages/maqasaty.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -165,6 +166,9 @@ class _fillNewMaqasState extends State<fillNewMaqas> {
                     chest_weidth.clear();
                     km_tall.clear();
                   });
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                    return Maqasaty();
+                  }));
                 }
               },
               child: Container(
