@@ -9,6 +9,8 @@ import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/pages/tafseel_details/1yaqa.dart';
 import 'package:flutter/material.dart';
 
+import '../combonents/Drawer/DrawerWidget.dart';
+
 class Tailor_Details_Page extends StatefulWidget {
   final Tailor_Details tailor;
   const Tailor_Details_Page({super.key, required this.tailor});
@@ -75,7 +77,18 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors_and_Dimentions.BK_color,
+      // backgroundColor: Colors_and_Dimentions.BK_color,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        centerTitle: true,
+        title: Image.network(
+          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
+          fit: BoxFit.contain,
+        ),
+      ),
+      //drawer
+      endDrawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Container(
