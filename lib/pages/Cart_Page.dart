@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Constants/Qumash_Details_modols.dart';
@@ -14,51 +16,30 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  StreamSubscription? listener_of_Tailors;
+  StreamSubscription? listener_of_T_Details;
 
-  StreamSubscription? listener_of_Qumashs;
-
-  List<Tailor_Details> tailors = [];
-
-  List<Qumash_Details> qumashs = [];
-
-  // List<Order_Detatils> orders = [];
+  List<Tafseel_Details> T_Details = [];
 
   @override
   void initState() {
-    // listener_of_Tailors?.cancel();
-    // listener_of_Qumashs?.cancel();
-    // listener_of_Orders?.cancel();
+    listener_of_T_Details?.cancel();
+
     super.initState();
 
-    // listenToQumashs();
-    // listenToTailors();
-    // listenToOrders();
+    listenToT_Details();
   }
 
-  // listenToTailors() {
-  //   listener_of_Tailors ??= FirebaseFirestore.instance.collection('List_of_Tailors').snapshots().listen((collection) {
-  //     List<Tailor_Details> newList = [];
-  //     for (final doc in collection.docs) {
-  //       final tailor = Tailor_Details.fromMap(doc.data());
-  //       newList.add(tailor);
-  //     }
-  //     tailors = newList;
-  //     setState(() {});
-  //   });
-  // }
-
-  // listenToOrders() {
-  //   listener_of_Orders ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
-  //     List<Order_Detatils> newList = [];
-  //     for (final doc in collection.docs) {
-  //       final order = Order_Details.fromMap(doc.dat());
-  //       newList.add(order);
-  //     }
-  //     orders = newList;
-  //     setState(() {});
-  //   });
-  // }
+  listenToT_Details() {
+    listener_of_T_Details ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
+      List<Tafseel_Details> newList = [];
+      for (final doc in collection.docs) {
+        final tDetail = Tafseel_Details.fromMap(doc.data());
+        newList.add(tDetail);
+      }
+      T_Details = newList;
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +60,8 @@ class _CartPageState extends State<CartPage> {
         child: SizedBox(
           height: 900,
           child: ListView(
-            children: const [
-              CardCartWidget(),
+            children: [
+              for (var c in T_Details) CardCartWidget(),
               PriceDetailWidget(),
             ],
           ),

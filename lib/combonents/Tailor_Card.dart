@@ -1,11 +1,22 @@
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Tailor_Card extends StatelessWidget {
+class Tailor_Card extends StatefulWidget {
   final Tailor_Details item;
   const Tailor_Card({super.key, required this.item});
 
+  @override
+  State<Tailor_Card> createState() => _Tailor_CardState();
+}
+
+class _Tailor_CardState extends State<Tailor_Card> {
+  void locationfun() async {
+    await launch('https://maps.app.goo.gl/bEUTWCaYY8VkhRho6');
+  }
+
+//https://maps.app.goo.gl/Q6mC8CoMSi6ESUUJ6
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,14 +26,10 @@ class Tailor_Card extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(255, 35, 35, 35).withOpacity(0.33),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ], borderRadius: BorderRadius.circular(12), color: Colors_and_Dimentions.main_continer_color),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,34 +45,50 @@ class Tailor_Card extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.yellow,
-                                ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Column(
+                                Row(
                                   children: [
-                                    FP_textSTyle(
-                                      text_content: item.Rate,
-                                      font_size: 12,
-                                      font_weight: FontWeight.bold,
-                                      text_color: Colors_and_Dimentions.fontcolor2,
+                                    const Icon(
+                                      Icons.star,
+                                      size: 32,
+                                      color: Colors.yellow,
+                                    ),
+                                    const SizedBox(
+                                      width: 4,
+                                    ),
+                                    Column(
+                                      children: [
+                                        FP_textSTyle(
+                                          text_content: widget.item.Rate,
+                                          font_weight: FontWeight.bold,
+                                          text_color: Colors_and_Dimentions.fontcolor2,
+                                        ),
+                                      ],
                                     ),
                                   ],
+                                ),
+                                const SizedBox(
+                                  width: 12,
+                                ),
+                                InkWell(
+                                  onTap: locationfun,
+                                  child: const Icon(
+                                    Icons.location_history,
+                                    size: 32,
+                                    color: Colors_and_Dimentions.font_color,
+                                  ),
                                 ),
                               ],
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 FP_textSTyle(
-                                  text_content: item.Tailor_name,
+                                  text_content: widget.item.Tailor_name,
                                   font_weight: FontWeight.bold,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
                                 FP_textSTyle(
-                                  text_content: item.location,
+                                  text_content: widget.item.location,
                                   font_weight: FontWeight.bold,
                                   text_color: Colors_and_Dimentions.fontcolor2,
                                 ),
@@ -86,7 +109,7 @@ class Tailor_Card extends StatelessWidget {
                   height: Colors_and_Dimentions.pic_H,
                   width: Colors_and_Dimentions.pic_W,
                   child: Image.network(
-                    item.Image_URL,
+                    widget.item.Image_URL,
                     fit: BoxFit.cover,
                   ),
                 ),
