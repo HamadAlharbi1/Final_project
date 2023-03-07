@@ -20,8 +20,8 @@ class _MaqasatyState extends State<Maqasaty> {
   void initState() {
     final FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
-    String _uid = user!.uid;
-    print(_uid);
+    String uid = user!.uid;
+    print(uid);
     super.initState();
   }
 
@@ -93,12 +93,12 @@ class _MaqasatyState extends State<Maqasaty> {
                         );
                       });
                 } else {
-                  return const Column(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Icon(
                             Icons.search_off,
                             color: Colors.white,
@@ -180,7 +180,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
                 flex: 2,
               ),
               Text(
-                widget.meger_nameShow == null ? '' : widget.meger_nameShow,
+                widget.meger_nameShow ?? '',
                 style: const TextStyle(
                   color: Colors_and_Dimentions.font_color,
                   fontSize: 22,
@@ -195,9 +195,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           const SizedBox(
             height: 18,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: const [
               Text(
                 ':الطول',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
@@ -207,9 +207,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
           const SizedBox(
             height: 8,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: const [
               Text(
                 ': الرقبة',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
@@ -263,7 +263,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
                 fontSize: 20,
               ),
             ),
-            content: SizedBox(
+            content: const SizedBox(
               width: 100,
             ),
             actions: [
@@ -279,7 +279,7 @@ class _maqasaty_cardState extends State<maqasaty_card> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text(
+                  child: const Text(
                     'إلغاء',
                     style: TextStyle(color: Colors.blue),
                   ))
