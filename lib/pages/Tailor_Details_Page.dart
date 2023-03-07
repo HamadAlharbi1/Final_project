@@ -9,8 +9,6 @@ import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/pages/tafseel_details/1yaqa.dart';
 import 'package:flutter/material.dart';
 
-import '../combonents/Drawer/DrawerWidget.dart';
-
 class Tailor_Details_Page extends StatefulWidget {
   final Tailor_Details tailor;
   const Tailor_Details_Page({super.key, required this.tailor});
@@ -248,6 +246,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               'qumash': qumash.Qumash_name,
                               'qumash_D': qumash.Describtion,
                               'qumash_IMG': qumash.Image_URL,
+                              'qumash_Price': qumash.price,
                               'Yaqa': '',
                               'Jubzor': '',
                               'Zorar': '',
