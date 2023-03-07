@@ -12,8 +12,18 @@ import 'package:flutter/material.dart';
 import '../combonents/Drawer/DrawerWidget.dart';
 
 class Tailor_Details_Page extends StatefulWidget {
-  final Tailor_Details tailor;
-  const Tailor_Details_Page({super.key, required this.tailor});
+  // final Tailor_Details tailor;required this.tailor
+  final String tailor_nameShow;
+  final String tailor_locatioShow;
+  final String tailor_rateShow;
+  final String tailor_imgShow;
+  const Tailor_Details_Page({
+    required this.tailor_nameShow,
+    super.key,
+    required this.tailor_locatioShow,
+    required this.tailor_rateShow,
+    required this.tailor_imgShow,
+  });
 
   @override
   State<Tailor_Details_Page> createState() => _Tailor_Details_PageState();
@@ -114,7 +124,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                         height: 100,
                         width: 100,
                         child: Image.network(
-                          widget.tailor.Image_URL,
+                          widget.tailor_imgShow,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -126,7 +136,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                   Container(
                     alignment: Alignment.center,
                     child: FP_textSTyle(
-                        text_content: widget.tailor.Tailor_name,
+                        text_content: widget.tailor_nameShow,
                         text_color: Colors_and_Dimentions.fontcolor2,
                         font_weight: FontWeight.bold),
                   ),
@@ -156,7 +166,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                                     width: Colors_and_Dimentions.Padding_4,
                                   ),
                                   FP_textSTyle(
-                                    text_content: widget.tailor.Rate,
+                                    text_content: widget.tailor_rateShow,
                                     font_size: Colors_and_Dimentions.fontsize_12,
                                     text_color: Colors_and_Dimentions.fontcolor2,
                                   ),
@@ -168,11 +178,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              FP_textSTyle(
-                                text_content: widget.tailor.The_ability,
-                                font_size: Colors_and_Dimentions.fontsize_12,
-                                text_color: Colors_and_Dimentions.fontcolor2,
-                              ),
+                              // FP_textSTyle(
+                              //   text_content: widget.tailor.The_ability,
+                              //   font_size: Colors_and_Dimentions.fontsize_12,
+                              //   text_color: Colors_and_Dimentions.fontcolor2,
+                              // ),
                             ],
                           ),
                           Column(
@@ -201,18 +211,18 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                           Column(
                             children: [
                               FP_textSTyle(
-                                text_content: widget.tailor.location,
+                                text_content: widget.tailor_locatioShow,
                                 font_size: Colors_and_Dimentions.fontsize_12,
                                 text_color: Colors_and_Dimentions.fontcolor2,
                               ),
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              FP_textSTyle(
-                                text_content: widget.tailor.avarge_period,
-                                font_size: Colors_and_Dimentions.fontsize_12,
-                                text_color: Colors_and_Dimentions.fontcolor2,
-                              ),
+                              // FP_textSTyle(
+                              //   text_content: widget.tailor.avarge_period,
+                              //   font_size: Colors_and_Dimentions.fontsize_12,
+                              //   text_color: Colors_and_Dimentions.fontcolor2,
+                              // ),
                             ],
                           ),
                           Column(
@@ -257,7 +267,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
 
                                 collectionRef.doc('1').set({
                                   'id': '',
-                                  'tailor': widget.tailor.Tailor_name,
+                                  'tailor': widget.tailor_nameShow,
                                   'qumash': qumash.Qumash_name,
                                   'qumash_D': qumash.Describtion,
                                   'qumash_IMG': qumash.Image_URL,

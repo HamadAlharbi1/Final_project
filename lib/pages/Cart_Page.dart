@@ -61,7 +61,10 @@ class _CartPageState extends State<CartPage> {
           height: 900,
           child: ListView(
             children: [
-              for (var c in T_Details) const CardCartWidget(),
+              for (var c in T_Details)
+                CardCartWidget(
+                  c: c,
+                ),
               const PriceDetailWidget(),
             ],
           ),

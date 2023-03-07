@@ -1,3 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
+import 'package:final_project/pages/Home_Page.dart';
+import 'package:final_project/pages/pay_page.dart';
 import 'package:flutter/material.dart';
 
 class PriceDetailWidget extends StatelessWidget {
@@ -120,7 +124,74 @@ class PriceDetailWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    actions: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const HomePage(), // pass the document ID to the next page
+                                                ),
+                                              );
+
+                                              CollectionReference cartRef =
+                                                  FirebaseFirestore.instance.collection('cart_content');
+
+                                              cartRef.get().then((querySnapshot) {
+                                                for (var doc in querySnapshot.docs) {
+                                                  doc.reference.delete();
+                                                }
+                                              });
+                                            },
+                                            child: Container(
+                                                alignment: Alignment.center,
+                                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(12),
+                                                  color: Colors_and_Dimentions.containercolor,
+                                                ),
+                                                child: const FP_textSTyle(
+                                                  text_content: 'نعم',
+                                                  text_color: Colors_and_Dimentions.fontcolor,
+                                                )),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                                alignment: Alignment.center,
+                                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(12),
+                                                  color: Colors_and_Dimentions.containercolor,
+                                                ),
+                                                child: const FP_textSTyle(
+                                                  text_content: 'لا',
+                                                  text_color: Colors_and_Dimentions.fontcolor,
+                                                )),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                    title: const Text(
+                                      'هل تريد حذف محتويات السلة   ',
+                                      style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+                                    ),
+                                    backgroundColor: Colors_and_Dimentions.main_continer_color,
+                                  );
+                                },
+                              );
+                            },
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
                             ),
@@ -133,7 +204,14 @@ class PriceDetailWidget extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const pay_page(), // pass the document ID to the next page
+                                ),
+                              );
+                            },
                             child: const Text(
                               '  إتمام الشراء ',
                               style: TextStyle(

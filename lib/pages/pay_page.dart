@@ -20,6 +20,7 @@ class pay_page extends StatelessWidget {
       //drawer
       endDrawer: const DrawerWidget(),
       body: Container(
+
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
@@ -28,6 +29,16 @@ class pay_page extends StatelessWidget {
               Color.fromARGB(255, 108, 184, 247),
               Color.fromARGB(255, 235, 166, 6),
             ],
+
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(),
+        child: ListView(padding: const EdgeInsets.all(25), children: [
+          Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+            child: Image.network(
+                'https://www.bbva.es/en/content/dam/public-web/bbvaes/images/personas/productos/02_tarjetas/cards/card-aqua-mas.jpg.img.1600.1655986015861.jpg'),
+
           ),
         ),
         child: Column(
@@ -40,6 +51,7 @@ class pay_page extends StatelessWidget {
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
               ),
+
             ),
             const SizedBox(height: 8.0),
             Container(
@@ -52,6 +64,102 @@ class pay_page extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
+=======
+              Container(
+                alignment: Alignment.center,
+                child: TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          actions: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const orders_page(), // pass the document ID to the next page
+                                      ),
+                                    );
+
+                                    CollectionReference cartRef = FirebaseFirestore.instance.collection('cart_content');
+
+                                    cartRef.get().then((querySnapshot) {
+                                      for (var doc in querySnapshot.docs) {
+                                        doc.reference.delete();
+                                      }
+                                    });
+                                  },
+                                  child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors_and_Dimentions.containercolor,
+                                      ),
+                                      child: const FP_textSTyle(
+                                        text_content: 'نعم',
+                                        text_color: Colors_and_Dimentions.fontcolor,
+                                      )),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors_and_Dimentions.containercolor,
+                                      ),
+                                      child: const FP_textSTyle(
+                                        text_content: 'لا',
+                                        text_color: Colors_and_Dimentions.fontcolor,
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ],
+                          title: const Text(
+                            ' هل تريد الانتقال الى السلة ',
+                            style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+                          ),
+                          backgroundColor: Colors_and_Dimentions.main_continer_color,
+                        );
+                      },
+                    );
+                    CollectionReference cartRef = FirebaseFirestore.instance.collection('cart_content');
+                    CollectionReference ordersRef = FirebaseFirestore.instance.collection('_orders');
+
+                    cartRef.get().then((querySnapshot) {
+                      for (var doc in querySnapshot.docs) {
+                        ordersRef.doc(doc.id).set(doc.data());
+                      }
+                    });
+                  },
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 47, 87, 95)),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(102, 91, 91, 91),
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                    ),
+                    child: const Text(
+                      'pay',
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 0, 76, 91), fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+
               ),
             ),
             const SizedBox(height: 8.0),
