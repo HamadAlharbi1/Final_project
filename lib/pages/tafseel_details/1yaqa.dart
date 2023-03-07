@@ -28,7 +28,7 @@ class _YaqaState extends State<Yaqa> {
               .update({
                 'Yaqa': 'ساده',
               })
-              .then((value) => Navigator.push(
+              .then((value) => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Jubzor(),

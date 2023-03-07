@@ -28,7 +28,7 @@ class _after_TDState extends State<after_TD> {
   }
 
   listenToT_Details() {
-    listener_of_T_Details ??= FirebaseFirestore.instance.collection('order_details').snapshots().listen((collection) {
+    listener_of_T_Details ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
       List<Tafseel_Details> newList = [];
       for (final doc in collection.docs) {
         final tDetail = Tafseel_Details.fromMap(doc.data());
@@ -43,7 +43,7 @@ class _after_TDState extends State<after_TD> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors_and_Dimentions.BK_color,
-      body: Column(
+      body: ListView(
         children: [
           for (var i in T_Details)
             Column(
@@ -128,11 +128,11 @@ class _after_TDState extends State<after_TD> {
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
+                                children: [
                                   FP_textSTyle(
                                     font_size: 32,
                                     font_weight: FontWeight.bold,
-                                    text_content: '264 ريال',
+                                    text_content: i.qumash_Price,
                                   ),
                                 ],
                               ),

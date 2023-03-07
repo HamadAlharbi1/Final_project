@@ -24,7 +24,7 @@ class Kapak extends StatelessWidget {
               .update({
                 'Kapak': 'ساده',
               })
-              .then((value) => Navigator.push(
+              .then((value) => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Tallstyle(),

@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
+import 'package:final_project/pages/Home_Page.dart';
 import 'package:flutter/material.dart';
 
 class tafseel_details extends StatelessWidget {
@@ -99,6 +101,76 @@ class tafseel_details extends StatelessWidget {
                   const SizedBox(
                     height: Colors_and_Dimentions.Hight_70,
                   ),
+                  Row(
+                    children: [
+                      InkWell(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  actions: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const HomePage(), // pass the document ID to the next page
+                                              ),
+                                            );
+
+                                            FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                                          },
+                                          child: Container(
+                                              alignment: Alignment.center,
+                                              padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(12),
+                                                color: Colors_and_Dimentions.containercolor,
+                                              ),
+                                              child: FP_textSTyle(
+                                                text_content: 'نعم',
+                                                text_color: Colors_and_Dimentions.fontcolor,
+                                              )),
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Container(
+                                              alignment: Alignment.center,
+                                              padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(12),
+                                                color: Colors_and_Dimentions.containercolor,
+                                              ),
+                                              child: FP_textSTyle(
+                                                text_content: 'لا',
+                                                text_color: Colors_and_Dimentions.fontcolor,
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                  title: const Text(
+                                    'هل تريد الالغاء  ',
+                                    style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+                                  ),
+                                  backgroundColor: Colors_and_Dimentions.main_continer_color,
+                                );
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.cancel_outlined,
+                            size: 20,
+                          ))
+                    ],
+                  )
                 ],
               ),
             ),
