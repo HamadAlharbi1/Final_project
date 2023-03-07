@@ -11,7 +11,7 @@ class pay_page extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: ListView(padding: const EdgeInsets.all(25), children: [
           Container(
             clipBehavior: Clip.hardEdge,
@@ -45,16 +45,17 @@ class pay_page extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => const after_TD(), // pass the document ID to the next page
+                                        builder: (context) =>
+                                            const orders_page(), // pass the document ID to the next page
                                       ),
                                     );
 
                                     CollectionReference cartRef = FirebaseFirestore.instance.collection('cart_content');
 
                                     cartRef.get().then((querySnapshot) {
-                                      querySnapshot.docs.forEach((doc) {
+                                      for (var doc in querySnapshot.docs) {
                                         doc.reference.delete();
-                                      });
+                                      }
                                     });
                                   },
                                   child: Container(
@@ -64,7 +65,7 @@ class pay_page extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(12),
                                         color: Colors_and_Dimentions.containercolor,
                                       ),
-                                      child: FP_textSTyle(
+                                      child: const FP_textSTyle(
                                         text_content: 'نعم',
                                         text_color: Colors_and_Dimentions.fontcolor,
                                       )),
@@ -80,7 +81,7 @@ class pay_page extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(12),
                                         color: Colors_and_Dimentions.containercolor,
                                       ),
-                                      child: FP_textSTyle(
+                                      child: const FP_textSTyle(
                                         text_content: 'لا',
                                         text_color: Colors_and_Dimentions.fontcolor,
                                       )),
@@ -100,9 +101,9 @@ class pay_page extends StatelessWidget {
                     CollectionReference ordersRef = FirebaseFirestore.instance.collection('_orders');
 
                     cartRef.get().then((querySnapshot) {
-                      querySnapshot.docs.forEach((doc) {
+                      for (var doc in querySnapshot.docs) {
                         ordersRef.doc(doc.id).set(doc.data());
-                      });
+                      }
                     });
                   },
                   style: ButtonStyle(

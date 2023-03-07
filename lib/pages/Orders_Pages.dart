@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
 
-class after_TD extends StatefulWidget {
-  const after_TD({super.key});
+class orders_page extends StatefulWidget {
+  const orders_page({super.key});
 
   @override
-  State<after_TD> createState() => _after_TDState();
+  State<orders_page> createState() => _orders_pageState();
 }
 
-class _after_TDState extends State<after_TD> {
+class _orders_pageState extends State<orders_page> {
   StreamSubscription? listener_of_T_Details;
 
   List<Tafseel_Details> T_Details = [];
