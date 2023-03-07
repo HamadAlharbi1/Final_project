@@ -24,7 +24,7 @@ class Zorar extends StatelessWidget {
               .update({
                 'Zorar': 'ظاهر',
               })
-              .then((value) => Navigator.push(
+              .then((value) => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Kapak(),

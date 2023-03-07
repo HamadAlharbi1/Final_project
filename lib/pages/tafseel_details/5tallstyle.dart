@@ -24,7 +24,7 @@ class Tallstyle extends StatelessWidget {
               .update({
                 'Tallstyle': 'طبيعي',
               })
-              .then((value) => Navigator.push(
+              .then((value) => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const tadrizestyle(),

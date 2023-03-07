@@ -8,6 +8,7 @@ class Tafseel_Details {
   String qumash;
   String qumash_D;
   String qumash_IMG;
+  String qumash_Price;
   String Yaqa;
   String Jubzor;
   String Zorar;
@@ -15,6 +16,7 @@ class Tafseel_Details {
   String Tallstyle;
   String tadrizestyle;
   Tafseel_Details({
+    required this.qumash_Price,
     required this.id,
     required this.tailor,
     required this.qumash,
@@ -29,6 +31,7 @@ class Tafseel_Details {
   });
   factory Tafseel_Details.fromMap(Map<String, dynamic> map) {
     return Tafseel_Details(
+      qumash_Price: map['qumash_Price'],
       qumash_IMG: map['qumash_IMG'],
       tadrizestyle: map['tadrizestyle'],
       tailor: map['tailor'],
@@ -44,6 +47,7 @@ class Tafseel_Details {
   }
   Map<String, dynamic> toMap() {
     return {
+      'qumash_Price': qumash_Price,
       'qumash_D': qumash_D,
       'qumash_IMG': qumash_IMG,
       'tadrizestyle': tadrizestyle,
