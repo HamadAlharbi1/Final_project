@@ -88,7 +88,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
               offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12), color: Colors_and_Dimentions.main_continer_color),
-          child: Column(
+          child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
