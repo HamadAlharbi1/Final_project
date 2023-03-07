@@ -9,6 +9,8 @@ import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/pages/tafseel_details/1yaqa.dart';
 import 'package:flutter/material.dart';
 
+import '../combonents/Drawer/DrawerWidget.dart';
+
 class Tailor_Details_Page extends StatefulWidget {
   final Tailor_Details tailor;
   const Tailor_Details_Page({super.key, required this.tailor});
@@ -88,7 +90,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
               offset: const Offset(0, 3), // changes position of shadow
             ),
           ], borderRadius: BorderRadius.circular(12), color: Colors_and_Dimentions.main_continer_color),
-          child: ListView(
+          child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -223,12 +225,13 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(
+                height: Colors_and_Dimentions.Padding_4,
+              ),
               Container(
                 color: Colors_and_Dimentions.container_color,
                 height: 1,
               ),
-              const SizedBox(height: 12),
               SizedBox(
                 height: 600,
                 child: ListView(
@@ -245,7 +248,6 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               'qumash': qumash.Qumash_name,
                               'qumash_D': qumash.Describtion,
                               'qumash_IMG': qumash.Image_URL,
-                              'qumash_Price': qumash.price,
                               'Yaqa': '',
                               'Jubzor': '',
                               'Zorar': '',

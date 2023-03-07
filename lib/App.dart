@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
       final resDoc = showroomCollection.doc(i.id);
       resDoc.set(i.toMap());
     }
-
     for (final i in Qumash_Detail.List_of_Qumashs) {
       final showroomCollection = FirebaseFirestore.instance.collection('List_of_Qumashs');
       final resDoc = showroomCollection.doc(i.id);
@@ -33,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Maqasaty(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }

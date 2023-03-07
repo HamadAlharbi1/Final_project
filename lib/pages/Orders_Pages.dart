@@ -6,6 +6,8 @@ import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
 import 'package:flutter/material.dart';
 
+import '../combonents/Drawer/DrawerWidget.dart';
+
 class after_TD extends StatefulWidget {
   const after_TD({super.key});
 
@@ -43,7 +45,7 @@ class _after_TDState extends State<after_TD> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors_and_Dimentions.BK_color,
-      body: ListView(
+      body: Column(
         children: [
           for (var i in T_Details)
             Column(

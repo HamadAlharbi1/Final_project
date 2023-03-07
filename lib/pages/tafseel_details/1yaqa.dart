@@ -4,6 +4,8 @@ import 'package:final_project/combonents/tafseel_details.dart';
 import 'package:final_project/pages/tafseel_details/2jubzor.dart';
 import 'package:flutter/material.dart';
 
+import '../../combonents/Drawer/DrawerWidget.dart';
+
 class Yaqa extends StatefulWidget {
   const Yaqa({
     super.key,
@@ -28,7 +30,7 @@ class _YaqaState extends State<Yaqa> {
               .update({
                 'Yaqa': 'ساده',
               })
-              .then((value) => Navigator.pushReplacement(
+              .then((value) => Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Jubzor(),

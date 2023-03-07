@@ -95,7 +95,7 @@ class _MaqasatyState extends State<Maqasaty> {
                         );
                       });
                 } else {
-                  return const Column(
+                  return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
