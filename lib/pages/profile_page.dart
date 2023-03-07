@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffeaeaeea),
+      backgroundColor: Color(0xffeaeaea),
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25.0), bottomRight: Radius.circular(25.0))),
@@ -55,13 +56,13 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.black.withOpacity(0.1),
         centerTitle: true,
         title: const Text(
-          'Profile',
+          'بيانات الحساب',
           style: TextStyle(
             shadows: [
               BoxShadow(offset: Offset(0, 5), color: Color.fromARGB(47, 151, 226, 247), spreadRadius: 1, blurRadius: 7)
             ],
             fontFamily: 'JosefinSans',
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: Colors_and_Dimentions.font_color,
             fontSize: 26,
             fontWeight: FontWeight.w900,
           ),
@@ -69,9 +70,10 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Center(
         child: Container(
-          margin: const EdgeInsets.all(24),
+          margin: EdgeInsets.all(24),
           width: double.infinity,
           decoration: BoxDecoration(
+            boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 0.6, spreadRadius: 0.8)],
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
           ),
@@ -86,10 +88,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const CircleAvatar(
                     maxRadius: 55,
-                    backgroundColor: Colors.blueGrey,
+                    backgroundColor: Colors_and_Dimentions.fontcolor,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
-                          'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                          'https://t3.ftcdn.net/jpg/03/39/45/96/360_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg'),
                       radius: 50,
                     ),
                   ),
@@ -99,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   Text(
                     user_name == null ? '' : user_name!,
                     style: const TextStyle(
-                        fontSize: 28, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 4, 66, 107)),
+                        fontSize: 28, fontWeight: FontWeight.w400, color: Colors_and_Dimentions.font_color),
                   ),
                   const SizedBox(
                     height: 4,
@@ -109,14 +111,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       SizedBox(
                         width: 4,
-                      ),
-                      Text(
-                        'since joined in :',
-                        style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromARGB(255, 4, 66, 107),
-                            fontStyle: FontStyle.italic),
                       ),
                       SizedBox(
                         width: 4,
@@ -129,33 +123,42 @@ class _ProfilePageState extends State<ProfilePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      SizedBox(
+                        height: 12,
+                      ),
                       const Padding(
                         padding: EdgeInsets.only(left: 8),
-                        child: Text(
-                          'Contact Info:',
-                          style: TextStyle(
-                              fontSize: 26, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 4, 66, 107)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'بيانات التواصل ',
+                              style: TextStyle(
+                                  fontSize: 26, fontWeight: FontWeight.bold, color: Colors_and_Dimentions.font_color),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(
                         height: 12,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8),
-                            child: Text(
-                              'Email:',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 4, 66, 107)),
-                            ),
-                          ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 8),
+                            padding: const EdgeInsets.only(right: 8),
                             child: Text(
                               user_email == null ? '' : '$user_email',
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w300, color: Color.fromARGB(255, 4, 66, 107)),
+                                  fontSize: 20, fontWeight: FontWeight.w300, color: Colors_and_Dimentions.font_color),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 8),
+                            child: Text(
+                              'البريد الإلكتروني',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
                             ),
                           ),
                         ],
@@ -164,21 +167,22 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 12,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8),
-                            child: Text(
-                              'Phone:',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 4, 66, 107)),
-                            ),
-                          ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 8),
+                            padding: const EdgeInsets.only(right: 8),
                             child: Text(
                               user_phoneNumber == null ? '' : '$user_phoneNumber',
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w300, color: Color.fromARGB(255, 4, 66, 107)),
+                                  fontSize: 20, fontWeight: FontWeight.w300, color: Colors_and_Dimentions.font_color),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 8),
+                            child: Text(
+                              'رقم الجوال',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
                             ),
                           ),
                         ],
@@ -210,7 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   end: Alignment.centerRight,
                                   colors: [Color.fromARGB(255, 194, 0, 32), Color.fromARGB(255, 243, 56, 56)])),
                           child: const Text(
-                            'Log Out',
+                            'تسجيل الخروج',
                             style: TextStyle(
                               fontFamily: 'JosefinSans',
                               fontSize: 24,

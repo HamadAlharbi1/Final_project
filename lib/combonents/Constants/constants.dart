@@ -15,8 +15,8 @@ class Colors_and_Dimentions {
   static const double Circular_border_12 = 12;
   static const double Padding_12 = 12;
   static const double Padding_4 = 4;
-  static const double pic_H = 150;
-  static const double pic_W = 150;
+  static const double pic_H = 100;
+  static const double pic_W = 100;
   static const double Hight_16 = 16;
   static const double tailor_Hpic_H = 300;
   static const double tailor_Hpic_W = 350;

@@ -30,7 +30,7 @@ class _after_TDState extends State<after_TD> {
   }
 
   listenToT_Details() {
-    listener_of_T_Details ??= FirebaseFirestore.instance.collection('order_details').snapshots().listen((collection) {
+    listener_of_T_Details ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
       List<Tafseel_Details> newList = [];
       for (final doc in collection.docs) {
         final tDetail = Tafseel_Details.fromMap(doc.data());
@@ -45,18 +45,7 @@ class _after_TDState extends State<after_TD> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors_and_Dimentions.BK_color,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
-        centerTitle: true,
-        title: Image.network(
-          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
-          fit: BoxFit.contain,
-        ),
-      ),
-      //drawer
-      endDrawer: const DrawerWidget(),
-      body: ListView(
+      body: Column(
         children: [
           for (var i in T_Details)
             Column(
@@ -124,7 +113,7 @@ class _after_TDState extends State<after_TD> {
                                       ),
                                       Container(
                                           alignment: Alignment.centerLeft,
-                                          width: 250,
+                                          width: 220,
                                           child: FP_textSTyle(text_content: i.qumash_D)),
                                     ],
                                   ),
@@ -140,13 +129,26 @@ class _after_TDState extends State<after_TD> {
                                 height: 32,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  FP_textSTyle(
-                                    font_size: 32,
-                                    font_weight: FontWeight.bold,
-                                    text_content: '264 ريال',
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const FP_textSTyle(
+                                        font_size: 32,
+                                        font_weight: FontWeight.bold,
+                                        text_content: 'ريال',
+                                      ),
+                                      FP_textSTyle(
+                                        font_size: 32,
+                                        font_weight: FontWeight.bold,
+                                        text_content: i.qumash_Price,
+                                      ),
+                                    ],
                                   ),
+                                  const FP_textSTyle(
+                                    text_content: 'اعادة طلب ',
+                                    font_weight: FontWeight.w600,
+                                  )
                                 ],
                               ),
                             ],

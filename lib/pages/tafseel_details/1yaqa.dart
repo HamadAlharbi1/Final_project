@@ -18,39 +18,27 @@ class _YaqaState extends State<Yaqa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
-        centerTitle: true,
-        title: Image.network(
-          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
-          fit: BoxFit.contain,
-        ),
-      ),
-      //drawer
-      endDrawer: const DrawerWidget(),
-      body: ListView(
-        children: [
-          tafseel_details(
-            D_1: 'ساده',
-            D_2: 'قلابي',
-            MY_ontap1: () {
-              final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
-              collectionRef
-                  .doc('1')
-                  .update({
-                    'Yaqa': 'ساده',
-                  })
-                  .then((value) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Jubzor(),
-                        ),
-                      ))
-                  .catchError((error) => print('Failed to update document: $error'));
-            },
-            MY_ontap2: () {
-              final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
+      backgroundColor: Colors_and_Dimentions.BK_color,
+      body: tafseel_details(
+        D_1: 'ساده',
+        D_2: 'قلابي',
+        MY_ontap1: () {
+          final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
+          collectionRef
+              .doc('1')
+              .update({
+                'Yaqa': 'ساده',
+              })
+              .then((value) => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Jubzor(),
+                    ),
+                  ))
+              .catchError((error) => print('Failed to update document: $error'));
+        },
+        MY_ontap2: () {
+          final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
 
               collectionRef
                   .doc('1')
