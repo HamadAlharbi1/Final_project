@@ -7,6 +7,7 @@ import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/pages/tafseel_details/1yaqa.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
@@ -36,9 +37,14 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
   List<Tailor_Details> tailors = [];
   List<Qumash_Details> qumashs = [];
   List<Tafseel_Details> order_details = [];
+  var _uid;
 
   @override
   void initState() {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    User? user = auth.currentUser;
+    _uid = user!.uid;
+
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
     listener_of_order_details?.cancel();
@@ -265,7 +271,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                                 final CollectionReference collectionRef =
                                     FirebaseFirestore.instance.collection('order_details');
 
-                                collectionRef.doc('1').set({
+                                collectionRef.doc('$_uid').set({
                                   'id': '',
                                   'tailor': widget.tailor_nameShow,
                                   'qumash': qumash.Qumash_name,

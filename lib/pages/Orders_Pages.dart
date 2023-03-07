@@ -30,7 +30,7 @@ class _orders_pageState extends State<orders_page> {
   }
 
   listenToT_Details() {
-    listener_of_T_Details ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
+    listener_of_T_Details ??= FirebaseFirestore.instance.collection('_orders').snapshots().listen((collection) {
       List<Tafseel_Details> newList = [];
       for (final doc in collection.docs) {
         final tDetail = Tafseel_Details.fromMap(doc.data());
