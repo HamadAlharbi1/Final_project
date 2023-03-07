@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PriceDetailWidget extends StatelessWidget {
@@ -122,6 +121,19 @@ class PriceDetailWidget extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                            ),
+                            child: const Text(
+                              ' إلغاء الشراء',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
                             child: const Text(
                               '  إتمام الشراء ',
                               style: TextStyle(
@@ -130,13 +142,13 @@ class PriceDetailWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Text(
-                            '  ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
+                          // const Text(
+                          //   '  ',
+                          //   style: TextStyle(
+                          //     fontWeight: FontWeight.bold,
+                          //     fontSize: 18,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

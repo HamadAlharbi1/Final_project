@@ -46,165 +46,169 @@ class _tadrizestyleState extends State<tadrizestyle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors_and_Dimentions.BK_color,
-      body: tafseel_details(
-        D_1: 'بدون تطريز',
-        D_2: 'خطوط مستقيمة',
-        MY_ontap1: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                actions: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CartPage(), // pass the document ID to the next page
-                            ),
-                          );
+      //backgroundColor: Colors_and_Dimentions.BK_color,
+      body: ListView(
+        children: [
+          tafseel_details(
+            D_1: 'بدون تطريز',
+            D_2: 'خطوط مستقيمة',
+            MY_ontap1: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    actions: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CartPage(), // pass the document ID to the next page
+                                ),
+                              );
 
-                          FirebaseFirestore.instance.collection('order_details').doc('1').delete();
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors_and_Dimentions.containercolor,
-                            ),
-                            child: FP_textSTyle(
-                              text_content: 'نعم',
-                              text_color: Colors_and_Dimentions.fontcolor,
-                            )),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors_and_Dimentions.containercolor,
-                            ),
-                            child: FP_textSTyle(
-                              text_content: 'لا',
-                              text_color: Colors_and_Dimentions.fontcolor,
-                            )),
-                      ),
-                    ],
-                  ),
-                ],
-                title: const Text(
-                  ' هل تريد الانتقال الى السلة ',
-                  style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
-                ),
-                backgroundColor: Colors_and_Dimentions.main_continer_color,
-              );
-            },
-          );
-          final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
-          final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
-
-          sourceDocRef.get().then((DocumentSnapshot snapshot) {
-            if (snapshot.exists) {
-              destDocRef.set(snapshot.data());
-            }
-          });
-          final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
-          collectionRef
-              .doc('1')
-              .update({
-                'tadrizestyle': 'بدون تطريز',
-              })
-              .then((value) {})
-              .catchError((error) => print('Failed to update document: $error'));
-        },
-        MY_ontap2: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                actions: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const after_TD(), // pass the document ID to the next page
-                            ),
-                          );
-
-                          FirebaseFirestore.instance.collection('order_details').doc('1').delete();
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors_and_Dimentions.containercolor,
-                            ),
-                            child: FP_textSTyle(
-                              text_content: 'نعم',
-                              text_color: Colors_and_Dimentions.fontcolor,
-                            )),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors_and_Dimentions.containercolor,
-                            ),
-                            child: FP_textSTyle(
-                              text_content: 'لا',
-                              text_color: Colors_and_Dimentions.fontcolor,
-                            )),
+                              FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                            },
+                            child: Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors_and_Dimentions.containercolor,
+                                ),
+                                child: const FP_textSTyle(
+                                  text_content: 'نعم',
+                                  text_color: Colors_and_Dimentions.fontcolor,
+                                )),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors_and_Dimentions.containercolor,
+                                ),
+                                child: const FP_textSTyle(
+                                  text_content: 'لا',
+                                  text_color: Colors_and_Dimentions.fontcolor,
+                                )),
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                ],
-                title: const Text(
-                  ' هل تريد الانتقال الى السلة ',
-                  style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
-                ),
-                backgroundColor: Colors_and_Dimentions.main_continer_color,
+                    title: const Text(
+                      ' هل تريد الانتقال الى السلة ',
+                      style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+                    ),
+                    backgroundColor: Colors_and_Dimentions.main_continer_color,
+                  );
+                },
               );
-            },
-          );
-          final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
-          final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
+              final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
+              final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
 
-          sourceDocRef.get().then((DocumentSnapshot snapshot) {
-            if (snapshot.exists) {
-              destDocRef.set(snapshot.data());
-            }
-          });
-          final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
-          collectionRef
-              .doc('1')
-              .update({
-                'tadrizestyle': 'خطوط مستقيمة',
-              })
-              .then((value) {})
-              .catchError((error) => print('Failed to update document: $error'));
-        },
-        title: 'اختر  التطريز',
-        image_1: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082041116083376128/image_27.png',
-        image_2: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082041115869454416/image_28.png',
+              sourceDocRef.get().then((DocumentSnapshot snapshot) {
+                if (snapshot.exists) {
+                  destDocRef.set(snapshot.data());
+                }
+              });
+              final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
+              collectionRef
+                  .doc('1')
+                  .update({
+                    'tadrizestyle': 'بدون تطريز',
+                  })
+                  .then((value) {})
+                  .catchError((error) => print('Failed to update document: $error'));
+            },
+            MY_ontap2: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    actions: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const after_TD(), // pass the document ID to the next page
+                                ),
+                              );
+
+                              FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                            },
+                            child: Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors_and_Dimentions.containercolor,
+                                ),
+                                child: const FP_textSTyle(
+                                  text_content: 'نعم',
+                                  text_color: Colors_and_Dimentions.fontcolor,
+                                )),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors_and_Dimentions.containercolor,
+                                ),
+                                child: const FP_textSTyle(
+                                  text_content: 'لا',
+                                  text_color: Colors_and_Dimentions.fontcolor,
+                                )),
+                          ),
+                        ],
+                      ),
+                    ],
+                    title: const Text(
+                      ' هل تريد الانتقال الى السلة ',
+                      style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+                    ),
+                    backgroundColor: Colors_and_Dimentions.main_continer_color,
+                  );
+                },
+              );
+              final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
+              final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
+
+              sourceDocRef.get().then((DocumentSnapshot snapshot) {
+                if (snapshot.exists) {
+                  destDocRef.set(snapshot.data());
+                }
+              });
+              final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
+              collectionRef
+                  .doc('1')
+                  .update({
+                    'tadrizestyle': 'خطوط مستقيمة',
+                  })
+                  .then((value) {})
+                  .catchError((error) => print('Failed to update document: $error'));
+            },
+            title: 'اختر  التطريز',
+            image_1: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082041116083376128/image_27.png',
+            image_2: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082041115869454416/image_28.png',
+          ),
+        ],
       ),
     );
   }
