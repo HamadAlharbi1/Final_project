@@ -5,7 +5,6 @@ import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/tafseel_details.dart';
 import 'package:final_project/pages/Cart_Page.dart';
-import 'package:final_project/pages/Orders_Pages.dart';
 import 'package:flutter/material.dart';
 
 class tadrizestyle extends StatefulWidget {
@@ -77,7 +76,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: FP_textSTyle(
+                            child: const FP_textSTyle(
                               text_content: 'نعم',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -93,7 +92,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: FP_textSTyle(
+                            child: const FP_textSTyle(
                               text_content: 'لا',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -140,7 +139,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const after_TD(), // pass the document ID to the next page
+                              builder: (context) => const CartPage(), // pass the document ID to the next page
                             ),
                           );
 
@@ -153,7 +152,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: FP_textSTyle(
+                            child: const FP_textSTyle(
                               text_content: 'نعم',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -169,7 +168,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: FP_textSTyle(
+                            child: const FP_textSTyle(
                               text_content: 'لا',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
