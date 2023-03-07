@@ -96,7 +96,6 @@ class _HomePageState extends State<HomePage> {
                     item: i,
                   ),
                 ),
-              for (var qumash in qumashs) Qumash_Card(qumash: qumash)
             ],
           ),
         ),
