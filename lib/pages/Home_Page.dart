@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/combonents/Tailor_Card.dart';
 import 'package:final_project/pages/Tailor_Details_Page.dart';
