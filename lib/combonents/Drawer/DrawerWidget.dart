@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../pages/Home_Page.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
     super.key,
@@ -10,36 +12,35 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // Drawer header with profile image
-          // const Align(
-          //   alignment: Alignment.centerRight,
-          //   child: UserAccountsDrawerHeader(
-          //     accountName: Text('محمد خالد'),
-          //     accountEmail: Text('anything@example.com'),
-          //     currentAccountPicture: CircleAvatar(
-          //       backgroundImage: NetworkImage('https://www.w3schools.com/w3images/avatar2.png'),
-          //     ),
-          //     decoration: BoxDecoration(
-          //       color: Colors.blue,
-          //     ),
-          //   ),
-          // ),
           Expanded(
             child: ListView(
               children: [
-                // Add your drawer items here
                 ListTile(
-                  trailing: const Icon(Icons.favorite),
+                  trailing: const Icon(Icons.account_circle),
                   title: Container(
                     alignment: Alignment.centerRight,
-                    child: const Text('Item 1'),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomePage()),
+                        );
+                      },
+                      child: const Text(
+                        '  الحساب ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ),
                   onTap: () {
                     // Handle item 1 tap
                   },
                 ),
                 ListTile(
-                  trailing: const Icon(Icons.account_circle),
+                  trailing: const Icon(Icons.favorite),
                   title: Container(
                     alignment: Alignment.centerRight,
                     child: const Text('Item 2'),
@@ -62,7 +63,6 @@ class DrawerWidget extends StatelessWidget {
               ],
             ),
           ),
-          // Drawer footer
           Container(
             padding: const EdgeInsets.all(16),
             child: const Text('Drawer Footer'),

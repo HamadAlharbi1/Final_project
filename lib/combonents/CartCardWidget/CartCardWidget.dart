@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
+import 'package:final_project/combonents/img_container.dart';
 import 'package:flutter/material.dart';
 
 class CardCartWidget extends StatefulWidget {
-  const CardCartWidget({
-    super.key,
-  });
+  final Tafseel_Details c;
+  const CardCartWidget({super.key, required this.c});
 
   @override
   State<CardCartWidget> createState() => _CardCartWidgetState();
@@ -80,38 +81,30 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
-                      'قماش كوري',
-                      style: TextStyle(
+                      widget.c.qumash,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
-                      ' قماش طبيعي 100',
-                      style: TextStyle(
+                      widget.c.qumash_D,
+                      style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
-                    Text('السعر 250')
+                    Text(widget.c.qumash_Price)
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Container(
-                  color: Colors.amber,
-                  width: 150,
-                  height: 200,
-                  child: const Text('data'),
-                ),
-              ),
+              IMg_container(Img_URL: widget.c.qumash_IMG),
             ],
           ),
           Column(
@@ -125,7 +118,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.amber,
+                        color: Colors_and_Dimentions.main_continer_color,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -146,7 +139,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.amber,
+                        color: Colors_and_Dimentions.main_continer_color,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
