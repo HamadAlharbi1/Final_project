@@ -77,7 +77,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: const FP_textSTyle(
+                            child: FP_textSTyle(
                               text_content: 'نعم',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -93,7 +93,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: const FP_textSTyle(
+                            child: FP_textSTyle(
                               text_content: 'لا',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -153,7 +153,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: const FP_textSTyle(
+                            child: FP_textSTyle(
                               text_content: 'نعم',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),
@@ -169,7 +169,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                               borderRadius: BorderRadius.circular(12),
                               color: Colors_and_Dimentions.containercolor,
                             ),
-                            child: const FP_textSTyle(
+                            child: FP_textSTyle(
                               text_content: 'لا',
                               text_color: Colors_and_Dimentions.fontcolor,
                             )),

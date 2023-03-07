@@ -1,14 +1,11 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
-import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/combonents/Tailor_Card.dart';
 import 'package:final_project/pages/Tailor_Details_Page.dart';
-import 'package:final_project/pages/fill_new_maqas.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
@@ -26,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     'https://example.com/image2.jpg',
     'https://example.com/image3.jpg',
   ];
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
   Timer? _timer;
 
   StreamSubscription? listener_of_Tailors;
@@ -70,6 +67,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        centerTitle: true,
+        title: Image.network(
+          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
+          fit: BoxFit.contain,
+        ),
+      ),
+      //drawer
+      endDrawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: SizedBox(
