@@ -1,3 +1,4 @@
+import 'package:final_project/pages/maqasaty.dart';
 import 'package:final_project/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   final user =
                       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email_, password: password_);
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return const HomePage();
+                    return const Maqasaty();
                   }));
                 } catch (e) {
                   print(e);

@@ -1,3 +1,4 @@
+import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class TextField1 extends StatelessWidget {
@@ -39,7 +40,7 @@ class TextField1 extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color.fromARGB(255, 238, 243, 243), width: 0),
+            borderSide: const BorderSide(color: Colors.grey, width: 0),
             borderRadius: BorderRadius.circular(10),
           ),
           filled: true,
