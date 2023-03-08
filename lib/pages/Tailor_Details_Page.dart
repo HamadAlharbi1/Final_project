@@ -100,7 +100,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
       // backgroundColor: Colors_and_Dimentions.BK_color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
@@ -125,6 +125,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
               ], borderRadius: BorderRadius.circular(12), color: Colors_and_Dimentions.main_continer_color),
               child: Column(
                 children: [
+                  /// الصورة
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -140,9 +141,12 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                       ),
                     ],
                   ),
+
                   const SizedBox(
                     height: Colors_and_Dimentions.Padding_4,
                   ),
+
+                  ///اسم الخياط
                   Container(
                     alignment: Alignment.center,
                     child: FP_textSTyle(
@@ -151,13 +155,15 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                         font_weight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: Colors_and_Dimentions.Padding_4,
+                    height: 32,
                   ),
+
+                  /// معلومات
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Column(
                             children: [
@@ -195,6 +201,9 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               ),
                             ],
                           ),
+                          const SizedBox(
+                            width: 12,
+                          ),
                           Column(
                             children: const [
                               FP_textSTyle(
@@ -217,6 +226,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Column(
                             children: [
@@ -234,6 +244,9 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                                 text_color: Colors_and_Dimentions.fontcolor2,
                               ),
                             ],
+                          ),
+                          const SizedBox(
+                            width: 12,
                           ),
                           Column(
                             children: const [
@@ -259,10 +272,12 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                     ],
                   ),
                   const SizedBox(
-                    height: Colors_and_Dimentions.Padding_4,
+                    height: 32,
                   ),
+
+                  /// الخط الافقي
                   Container(
-                    color: Colors_and_Dimentions.container_color,
+                    color: const Color.fromARGB(38, 121, 103, 99),
                     height: 1,
                   ),
                   SizedBox(
@@ -297,7 +312,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                                   );
                                 }).catchError((error) => print('Failed to add document: $error'));
                               },
-                              child: Qumash_Card(qumash: qumash))
+                              child: Column(
+                                children: [
+                                  Qumash_Card(qumash: qumash),
+                                ],
+                              ))
                       ],
                     ),
                   ),

@@ -1,11 +1,11 @@
 import 'package:final_project/combonents/Constants/constants.dart';
-import 'package:final_project/pages/maqasaty.dart';
+import 'package:final_project/pages/Cart_Page.dart';
+import 'package:final_project/pages/Home_Page.dart';
 import 'package:final_project/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/text_field1.dart';
-import 'Home_Page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: 150,
                   child: Image.network(
                     'https://cdn.discordapp.com/attachments/1081328393364189276/1081621027513188473/image_13_BIG.png',
@@ -173,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return RegisterPage();
+                      return const RegisterPage();
                     },
                   ),
                 );
@@ -189,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 21,
             )
           ],

@@ -52,15 +52,12 @@ class _fillNewMaqasState extends State<fillNewMaqas> {
                   onTap: () => Navigator.pop(context),
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors_and_Dimentions.icon_color,
-                    ),
+                    child: Icon(Icons.arrow_forward_ios, color: Colors.white),
                   ),
                 )
               ],
               elevation: 0,
-              backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+              backgroundColor: Colors_and_Dimentions.icon_color,
               centerTitle: true,
               title: Image.network(
                 'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',

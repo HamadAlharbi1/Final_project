@@ -114,8 +114,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   final phonenumber1 = phonenumber.text;
                   final Email = emailregister.text;
                   final Pass = passregister.text;
-                  final newuser =
-                      FirebaseAuth.instance.createUserWithEmailAndPassword(email: Email, password: Pass).then((value) {
+
+                  /// there is an issue with login which need to be checked
+                  final newuser = FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: Email, password: Pass)
+                      .then((value) {
                     FirebaseFirestore.instance.collection('UserData')
                       ..doc(value.user!.uid).set({
                         'id': value.user!.uid,
@@ -125,7 +129,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                   });
                   if (newuser != null) {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
                       return LoginPage();
                     }));
                   } else {
@@ -167,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontSize: 24,
                     color: Color(0xff796763),
                     fontWeight: FontWeight.w500,
-                  ),
+                  )
                 ),
               ),
             ),

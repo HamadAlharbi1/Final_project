@@ -114,10 +114,15 @@ class _Tailor_CardState extends State<Tailor_Card> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    FP_textSTyle(
-                                      text_content: widget.tailor_name,
-                                      font_weight: FontWeight.bold,
-                                      text_color: Colors_and_Dimentions.fontcolor2,
+                                    SizedBox(
+                                      height: 50,
+                                      child: Expanded(
+                                        child: FP_textSTyle(
+                                          text_content: widget.tailor_name,
+                                          font_weight: FontWeight.bold,
+                                          text_color: Colors_and_Dimentions.fontcolor2,
+                                        ),
+                                      ),
                                     ),
                                     FP_textSTyle(
                                       text_content: widget.location,

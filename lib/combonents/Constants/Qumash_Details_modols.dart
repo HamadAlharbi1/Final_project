@@ -1,32 +1,83 @@
 class Qumash_Detail {
   static List<Qumash_Details> List_of_Qumashs = [
+    /// قماش كوري
+    // Qumash_Details(
+    //     Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
+    //     country_of_manufacture: 'كوري',
+    //     Rate: '4.3',
+    //     id: '1',
+    //     Qumash_name: "قماش كوري ",
+    //     Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+    //     The_ability: 'متوفر',
+    //     price: ' 230'),
+
+    ///2
+    ///https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/_/-/_-7711.jpg
+    ///بنتلي
+    ///نسيج تربيعي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير
+    ///3
+    ///https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/f/i/file_3.jpg
+    ///بليرن
+    ///نسيج طولي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير
+    ///4
+    ///https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/_/-/_-_2.jpg
+    ///ميليون
+    ///نسيج تربيعي من القطن الصناعي ثقيل رسمي ومتوسط في مقاومته التكسير
+    ///5
+    ///https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/f/i/file_1.jpg
+    ///ريفيو
+    ///نسيج طولي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير
+    ///
+    ///
+    ///
     Qumash_Details(
         Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
         country_of_manufacture: 'كوري',
-        Rate: '4.3',
+        Rate: '4.4',
         id: '1',
         Qumash_name: "قماش كوري ",
         Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
         The_ability: 'متوفر',
-        price: ' 230'),
+        price: ' 237'),
     Qumash_Details(
-        Image_URL: 'https://cdn.salla.sa/mWbnq/XQWFpflTlRD5Usl2jI7iQM6PGkytndLFKRMbqHF2.jpg',
-        country_of_manufacture: 'كوري',
-        Rate: '4.3',
+        Image_URL:
+            'https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/_/-/_-7711.jpg',
+        country_of_manufacture: '',
+        Rate: '5',
         id: '2',
-        Qumash_name: "قماش ياباني",
-        Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+        Qumash_name: 'بنتلي',
+        Describtion: 'نسيج تربيعي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير',
         The_ability: 'متوفر',
-        price: '150'),
+        price: '244'),
     Qumash_Details(
-        Image_URL: 'https://cdn.discordapp.com/attachments/1081328393364189276/1082402840603021413/image_20_1.png',
-        country_of_manufacture: 'كوري',
-        Rate: '4.3',
+        Image_URL:
+            'https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/f/i/file_3.jpg',
+        country_of_manufacture: '',
+        Rate: '5',
         id: '3',
-        Qumash_name: "قماش ماليزي",
-        Describtion: 'قماش صيفي كوري فاخر جودة عالية نقشة مربعات مصنوع من الياف القطن والبولستر المعالج.',
+        Qumash_name: 'بليرن',
+        Describtion: 'نسيج تربيعي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير',
         The_ability: 'متوفر',
-        price: '168'),
+        price: '294'),
+    Qumash_Details(
+        Image_URL: 'https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/_/-/_-_2.jpg',
+        country_of_manufacture: '',
+        Rate: '5',
+        id: '4',
+        Qumash_name: 'ميليون',
+        Describtion: 'سيج تربيعي من القطن الصناعي ثقيل رسمي ومتوسط في مقاومته التكسير',
+        The_ability: 'متوفر',
+        price: '294'),
+    Qumash_Details(
+        Image_URL:
+            'https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/f/i/file_1.jpg',
+        country_of_manufacture: '',
+        Rate: '5',
+        id: '5',
+        Qumash_name: 'ريفيو',
+        Describtion: 'نسيج طولي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير',
+        The_ability: 'متوفر',
+        price: '274'),
   ];
 }
 
