@@ -127,7 +127,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors_and_Dimentions.fontcolor, borderRadius: BorderRadius.circular(12)),
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.all(14),
                         child: Column(
                           children: [
