@@ -10,6 +10,8 @@ class Tailor_Card extends StatefulWidget {
   final String img;
   final String tailor_name;
   final String tailor_rate;
+  final String tailor_availabilty;
+  final String tailor_worktime;
 
   const Tailor_Card(
       {super.key,
@@ -17,7 +19,9 @@ class Tailor_Card extends StatefulWidget {
       required this.location,
       required this.img,
       required this.tailor_name,
-      required this.tailor_rate});
+      required this.tailor_rate,
+      required this.tailor_availabilty,
+      required this.tailor_worktime});
 
   @override
   State<Tailor_Card> createState() => _Tailor_CardState();
@@ -44,6 +48,8 @@ class _Tailor_CardState extends State<Tailor_Card> {
                 tailor_locatioShow: widget.location,
                 tailor_rateShow: widget.tailor_rate,
                 tailor_imgShow: widget.img,
+                tailor_availabilityShow: widget.tailor_availabilty,
+                tailor_worktimeShow: widget.tailor_worktime,
               );
             }));
           },
