@@ -71,14 +71,14 @@ class _HomePageState extends State<HomePage> {
           children: [
             IconButton(
               icon: const Icon(Icons.filter_list_sharp),
-              color: Colors_and_Dimentions.icon_color,
+              color: Colors.white,
               onPressed: () {
                 ShowFilterDialog(context);
               },
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
-              color: Colors_and_Dimentions.icon_color,
+              color: Colors.white,
               onPressed: () {
                 Navigator.push(
                   context,
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
