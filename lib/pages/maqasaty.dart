@@ -40,14 +40,21 @@ class _MaqasatyState extends State<Maqasaty> {
             child: AppBar(
               leading: InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
                       return const fillNewMaqas();
                     }));
                   },
                   child: const Icon(Icons.add)),
               automaticallyImplyLeading: false,
+              actions: [
+                InkWell(
+                    onTap: () => {Navigator.pop(context, () => null)},
+                    child: Icon(Icons.arrow_forward))
+              ],
               elevation: 0,
-              backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+              backgroundColor:
+                  const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
               centerTitle: true,
               title: Image.network(
                 'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
@@ -57,11 +64,14 @@ class _MaqasatyState extends State<Maqasaty> {
           ),
         ),
       ),
-      endDrawer: const DrawerWidget(),
+      // endDrawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('Maqasat').where('uploadedBy', isEqualTo: '$_uid').snapshots(),
+          stream: FirebaseFirestore.instance
+              .collection('Maqasat')
+              .where('uploadedBy', isEqualTo: '$_uid')
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -75,12 +85,17 @@ class _MaqasatyState extends State<Maqasaty> {
                       itemBuilder: (context, index) {
                         return maqasaty_card(
                           maqasid: snapshot.data!.docs[index]['maqasid'],
-                          meger_nameShow: snapshot.data!.docs[index]['megerName'],
+                          meger_nameShow: snapshot.data!.docs[index]
+                              ['megerName'],
                           tall_show: snapshot.data!.docs[index]['tall'],
-                          uploadedBy_show: snapshot.data!.docs[index]['uploadedBy'],
-                          neck_weidthSow: snapshot.data!.docs[index]['neckWeidth'],
-                          shoulder_weidthShow: snapshot.data!.docs[index]['shoulderWeidth'],
-                          chest_weidthShow: snapshot.data!.docs[index]['chestWeidth'],
+                          uploadedBy_show: snapshot.data!.docs[index]
+                              ['uploadedBy'],
+                          neck_weidthSow: snapshot.data!.docs[index]
+                              ['neckWeidth'],
+                          shoulder_weidthShow: snapshot.data!.docs[index]
+                              ['shoulderWeidth'],
+                          chest_weidthShow: snapshot.data!.docs[index]
+                              ['chestWeidth'],
                           km_tallShow: snapshot.data!.docs[index]['kmTall'],
                         );
                       });
@@ -154,7 +169,9 @@ class _maqasaty_cardState extends State<maqasaty_card> {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
+          boxShadow: const [
+            BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)
+          ]),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -194,12 +211,17 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             children: [
               Text(
                 widget.tall_show ?? '',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':الطول',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
             ],
           ),
@@ -211,12 +233,17 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             children: [
               Text(
                 widget.neck_weidthSow ?? '',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':عرض الرقبة',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
             ],
           ),
@@ -228,12 +255,17 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             children: [
               Text(
                 widget.shoulder_weidthShow ?? '',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':عرض الكتف',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
             ],
           ),
@@ -245,12 +277,17 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             children: [
               Text(
                 widget.chest_weidthShow ?? '',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':عرض الصدر',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
             ],
           ),
@@ -262,12 +299,17 @@ class _maqasaty_cardState extends State<maqasaty_card> {
             children: [
               Text(
                 widget.km_tallShow ?? '',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
               const Text(
                 ':طول الكم',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.font_color),
               ),
             ],
           ),
@@ -300,7 +342,10 @@ class _maqasaty_cardState extends State<maqasaty_card> {
               TextButton(
                   onPressed: () {
                     setState(() {});
-                    FirebaseFirestore.instance.collection('Maqasat').doc(widget.maqasid).delete();
+                    FirebaseFirestore.instance
+                        .collection('Maqasat')
+                        .doc(widget.maqasid)
+                        .delete();
                     Navigator.pop(context);
                     Fluttertoast.showToast(
                         msg: "The task  delete successfully",

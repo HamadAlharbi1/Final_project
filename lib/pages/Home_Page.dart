@@ -31,36 +31,36 @@ class _HomePageState extends State<HomePage> {
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
     super.initState();
-    listenToQumashs();
+    // listenToQumashs();
   }
 
-  listenToTailors() {
-    listener_of_Tailors ??= FirebaseFirestore.instance
-        .collection('List_of_Tailors')
-        .where('location', isEqualTo: 'ينبع')
-        .snapshots()
-        .listen((collection) {
-      List<Tailor_Details> newList = [];
-      for (final doc in collection.docs) {
-        final tailor = Tailor_Details.fromMap(doc.data());
-        newList.add(tailor);
-      }
-      tailors = newList;
-      setState(() {});
-    });
-  }
+  // listenToTailors() {
+  //   listener_of_Tailors ??= FirebaseFirestore.instance
+  //       .collection('List_of_Tailors')
+  //       .where('location', isEqualTo: 'ينبع')
+  //       .snapshots()
+  //       .listen((collection) {
+  //     List<Tailor_Details> newList = [];
+  //     for (final doc in collection.docs) {
+  //       final tailor = Tailor_Details.fromMap(doc.data());
+  //       newList.add(tailor);
+  //     }
+  //     tailors = newList;
+  //     setState(() {});
+  //   });
+  // }
 
-  listenToQumashs() {
-    listener_of_Qumashs ??= FirebaseFirestore.instance.collection('List_of_Qumashs').snapshots().listen((collection) {
-      List<Qumash_Details> newList = [];
-      for (final doc in collection.docs) {
-        final qumash = Qumash_Details.fromMap(doc.data());
-        newList.add(qumash);
-      }
-      qumashs = newList;
-      setState(() {});
-    });
-  }
+  // listenToQumashs() {
+  //   listener_of_Qumashs ??= FirebaseFirestore.instance.collection('List_of_Qumashs').snapshots().listen((collection) {
+  //     List<Qumash_Details> newList = [];
+  //     for (final doc in collection.docs) {
+  //       final qumash = Qumash_Details.fromMap(doc.data());
+  //       newList.add(qumash);
+  //     }
+  //     qumashs = newList;
+  //     setState(() {});
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.shopping_cart),
               color: Colors_and_Dimentions.icon_color,
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const CartPage()),
                 );
@@ -119,8 +119,10 @@ class _HomePageState extends State<HomePage> {
                         tailor_rate: snapshot.data!.docs[index]['Rate'],
                         location: snapshot.data!.docs[index]['location'],
                         img: snapshot.data!.docs[index]['Image_URL'],
-                        tailor_availabilty: snapshot.data!.docs[index]['The_ability'],
-                        tailor_worktime: snapshot.data!.docs[index]['avarge_period'],
+                        tailor_availabilty: snapshot.data!.docs[index]
+                            ['The_ability'],
+                        tailor_worktime: snapshot.data!.docs[index]
+                            ['avarge_period'],
                         google_map: snapshot.data!.docs[index]['more_details2'],
                       );
                     });
@@ -200,7 +202,8 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.symmetric(vertical: 2),
                             child: Text(
                               CityList[index],
-                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w400),
                             ),
                           )
                         ],
