@@ -67,7 +67,7 @@ class _TallstyleState extends State<Tallstyle> {
               final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
 
               collectionRef
-                  .doc('1')
+                  .doc('$_uid')
                   .update({
                     'Tallstyle': 'منسدل',
                   })

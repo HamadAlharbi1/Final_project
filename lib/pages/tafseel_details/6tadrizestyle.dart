@@ -26,15 +26,15 @@ class _tadrizestyleState extends State<tadrizestyle> {
   @override
   void initState() {
     listener_of_T_Details?.cancel();
-   final FirebaseAuth auth = FirebaseAuth.instance;
+    final FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
     _uid = user!.uid;
     super.initState();
 
     listenToT_Details();
   }
+
   var _uid;
- 
 
   listenToT_Details() {
     listener_of_T_Details ??= FirebaseFirestore.instance.collection('order_details').snapshots().listen((collection) {
@@ -94,7 +94,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors_and_Dimentions.containercolor,
                                 ),
-                                child: FP_textSTyle(
+                                child: const FP_textSTyle(
                                   text_content: 'نعم',
                                   text_color: Colors_and_Dimentions.fontcolor,
                                 )),
@@ -110,7 +110,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors_and_Dimentions.containercolor,
                                 ),
-                                child: FP_textSTyle(
+                                child: const FP_textSTyle(
                                   text_content: 'لا',
                                   text_color: Colors_and_Dimentions.fontcolor,
                                 )),
@@ -136,7 +136,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
               });
               final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
               collectionRef
-                 .doc('$_uid')
+                  .doc('$_uid')
                   .update({
                     'tadrizestyle': 'بدون تطريز',
                   })
@@ -170,7 +170,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors_and_Dimentions.containercolor,
                                 ),
-                                child: FP_textSTyle(
+                                child: const FP_textSTyle(
                                   text_content: 'نعم',
                                   text_color: Colors_and_Dimentions.fontcolor,
                                 )),
@@ -186,7 +186,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors_and_Dimentions.containercolor,
                                 ),
-                                child: FP_textSTyle(
+                                child: const FP_textSTyle(
                                   text_content: 'لا',
                                   text_color: Colors_and_Dimentions.fontcolor,
                                 )),
@@ -202,7 +202,8 @@ class _tadrizestyleState extends State<tadrizestyle> {
                   );
                 },
               );
-              final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
+              final DocumentReference sourceDocRef =
+                  FirebaseFirestore.instance.collection('order_details').doc('$_uid');
               final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
 
               sourceDocRef.get().then((DocumentSnapshot snapshot) {
@@ -212,7 +213,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
               });
               final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
               collectionRef
-                  .doc('1')
+                  .doc('$_uid')
                   .update({
                     'tadrizestyle': 'خطوط مستقيمة',
                   })

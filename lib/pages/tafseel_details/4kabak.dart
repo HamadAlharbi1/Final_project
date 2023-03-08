@@ -66,7 +66,7 @@ class _KapakState extends State<Kapak> {
               final CollectionReference collectionRef = FirebaseFirestore.instance.collection('order_details');
 
               collectionRef
-                  .doc('1')
+                  .doc('$_uid')
                   .update({
                     'Kapak': 'كبك',
                   })
