@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   final user =
                       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email_, password: password_);
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return const Maqasaty();
+                    return const HomePage();
                   }));
                 } catch (e) {
                   print(e);
