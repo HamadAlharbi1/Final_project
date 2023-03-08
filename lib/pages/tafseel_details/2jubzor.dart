@@ -4,6 +4,7 @@ import 'package:final_project/pages/tafseel_details/3zorar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../combonents/Constants/constants.dart';
 import '../../combonents/Drawer/DrawerWidget.dart';
 
 class Jubzor extends StatefulWidget {
@@ -32,7 +33,7 @@ class _JubzorState extends State<Jubzor> {
       //backgroundColor: Colors_and_Dimentions.BK_color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',

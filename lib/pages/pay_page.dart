@@ -18,6 +18,7 @@ class pay_page extends StatefulWidget {
 }
 
 class _pay_pageState extends State<pay_page> {
+
   StreamSubscription? listener_of_T_Details;
 
   List<Tafseel_Details> T_Details = [];
@@ -37,6 +38,7 @@ class _pay_pageState extends State<pay_page> {
   var _uid;
   TextEditingController dateinput = TextEditingController();
 
+
   @override
   void initState() {
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -53,7 +55,7 @@ class _pay_pageState extends State<pay_page> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
@@ -163,6 +165,7 @@ class _pay_pageState extends State<pay_page> {
                     Color.fromARGB(255, 142, 63, 63)
                   ],
                 ),
+
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,6 +176,7 @@ class _pay_pageState extends State<pay_page> {
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
+
                     ),
                   ),
                   const SizedBox(height: 8.0),
@@ -298,10 +302,14 @@ class _pay_pageState extends State<pay_page> {
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
+    this.isenable,
     required this.hint,
+    this.controller_,
     super.key,
   });
+  final bool? isenable;
   final String hint;
+  final TextEditingController? controller_;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -311,6 +319,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enabled: widget.isenable,
+      controller: widget.controller_,
       decoration: InputDecoration(
         hintText: widget.hint,
         hintStyle: const TextStyle(color: Colors.grey),

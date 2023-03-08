@@ -1,9 +1,4 @@
-import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
-import 'package:final_project/combonents/img_container.dart';
 import 'package:final_project/pages/Cart_Page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +18,7 @@ class _after_TDState extends State<qyas_khiadhti> {
       //backgroundColor: Colors_and_Dimentions.BK_color,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
@@ -36,10 +31,10 @@ class _after_TDState extends State<qyas_khiadhti> {
         children: [
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 200,
               ),
-              FP_textSTyle(
+              const FP_textSTyle(
                 text_content: 'ادخل رقم الهاتف ليتم التواصل معك ',
                 font_weight: FontWeight.bold,
                 font_size: 20,
@@ -59,10 +54,10 @@ class _after_TDState extends State<qyas_khiadhti> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: TextField(),
+                      SizedBox(
                         height: 200,
                         width: 300,
+                        child: TextField(),
                       )
                     ],
                   ),
