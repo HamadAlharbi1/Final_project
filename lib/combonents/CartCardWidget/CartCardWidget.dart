@@ -112,38 +112,50 @@ class _CardCartWidgetState extends State<CardCartWidget> {
     return Card(
       child: Column(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      widget.c.qumash,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        widget.c.qumash,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      widget.c.qumash_D,
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
+                      const SizedBox(height: 5),
+                      SizedBox(
+                        width: 290,
+                        child: Text(
+                          widget.c.qumash_D,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(widget.c.qumash_Price)
-                  ],
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      FP_textSTyle(
+                        text_content: '${widget.c.qumash_Price}',
+                        font_size: 20,
+                        font_weight: FontWeight.bold,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              IMg_container(Img_URL: widget.c.qumash_IMG),
-            ],
+                IMg_container(Img_URL: widget.c.qumash_IMG),
+              ],
+            ),
           ),
           Column(
             children: [

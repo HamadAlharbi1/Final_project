@@ -85,7 +85,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                 ),
                               );
 
-                              FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
+                              //        FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
                             },
                             child: Container(
                                 alignment: Alignment.center,
@@ -162,7 +162,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                 ),
                               );
 
-                              FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
+                              //      FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
                             },
                             child: Container(
                                 alignment: Alignment.center,

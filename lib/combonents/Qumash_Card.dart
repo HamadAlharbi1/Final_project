@@ -16,6 +16,10 @@ class Qumash_Card extends StatelessWidget {
           height: Colors_and_Dimentions.Hight_16,
         ),
         Container(
+          color: const Color.fromARGB(38, 121, 103, 99),
+          height: 1,
+        ),
+        Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(boxShadow: const [
             // BoxShadow(
@@ -49,6 +53,27 @@ class Qumash_Card extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color.fromARGB(255, 35, 35, 35).withOpacity(0.3),
+                                      spreadRadius: 1,
+                                      blurRadius: 1,
+                                      offset: const Offset(1, 1),
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors_and_Dimentions.main_continer_color),
+                              child: const FP_textSTyle(
+                                text_content: '  اختيار القماش  ',
+                                font_weight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 32,
+                            ),
                             Column(
                               children: [
                                 FP_textSTyle(
@@ -97,6 +122,13 @@ class Qumash_Card extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        const SizedBox(
+          height: Colors_and_Dimentions.Hight_16,
+        ),
+        Container(
+          color: const Color.fromARGB(38, 121, 103, 99),
+          height: 1,
         ),
       ],
     );
