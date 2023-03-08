@@ -85,7 +85,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                 ),
                               );
 
-                              FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                              FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
                             },
                             child: Container(
                                 alignment: Alignment.center,
@@ -126,7 +126,8 @@ class _tadrizestyleState extends State<tadrizestyle> {
                   );
                 },
               );
-              final DocumentReference sourceDocRef = FirebaseFirestore.instance.collection('order_details').doc('1');
+              final DocumentReference sourceDocRef =
+                  FirebaseFirestore.instance.collection('order_details').doc('$_uid');
               final DocumentReference destDocRef = FirebaseFirestore.instance.collection('cart_content').doc();
 
               sourceDocRef.get().then((DocumentSnapshot snapshot) {
@@ -161,7 +162,7 @@ class _tadrizestyleState extends State<tadrizestyle> {
                                 ),
                               );
 
-                              FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                              FirebaseFirestore.instance.collection('order_details').doc('$_uid').delete();
                             },
                             child: Container(
                                 alignment: Alignment.center,
