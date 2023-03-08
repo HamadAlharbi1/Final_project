@@ -13,8 +13,25 @@ class pay_page extends StatefulWidget {
 }
 
 class _pay_pageState extends State<pay_page> {
-  TextEditingController dateinput = TextEditingController();
+  TextEditingController dateinput = TextEditingController(text: '0/00');
+  DateTime? dateUserInput;
+  Timestamp? timeStampPick;
   //text editing controller for text field
+  pickDate() async {
+    dateUserInput = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now().subtract(
+          const Duration(days: 0),
+        ),
+        lastDate: DateTime(2100));
+    if (dateUserInput != null) {
+      setState(() {
+        timeStampPick = Timestamp.fromMicrosecondsSinceEpoch(dateUserInput!.microsecondsSinceEpoch);
+        dateinput.text = '${dateUserInput!.year} - ${dateUserInput!.month} - ${dateUserInput!.day}';
+      });
+    }
+  }
 
   @override
   void initState() {
@@ -28,7 +45,7 @@ class _pay_pageState extends State<pay_page> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
@@ -105,36 +122,17 @@ class _pay_pageState extends State<pay_page> {
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
-                child: const CustomTextField(hint: 'MM/DD/yyyy'),
+                child: InkWell(
+                  onTap: () {
+                    pickDate();
+                  },
+                  child: CustomTextField(
+                    hint: 'MM/DD/yyyy',
+                    isenable: false,
+                    controller_: dateinput,
+                  ),
+                ),
               ),
-              // TextField(
-              //   controller: dateinput, //editing controller of this TextField
-              //   decoration: const InputDecoration(
-              //       icon: Icon(Icons.calendar_today), //icon of text field
-              //       labelText: "Enter Date" //label text of field
-              //       ),
-              //   readOnly: true,
-              //   onTap: () async {
-              //     DateTime? pickedDate = await showDatePicker(
-              //         context: context,
-              //         initialDate: DateTime.now(),
-              //         firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
-              //         lastDate: DateTime(2101));
-
-              //     if (pickedDate != null) {
-              //       print(pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-              //       String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-              //       print(formattedDate); //formatted date output using intl package =>  2021-03-16
-              //       //you can implement different kind of Date Format here according to your requirement
-
-              //       setState(() {
-              //         dateinput.text = formattedDate; //set output date to TextField value.
-              //       });
-              //     } else {
-              //       print("Date is not selected");
-              //     }
-              //   },
-              // ),
 
               // Container(
               //   color: Colors.white,
@@ -185,10 +183,14 @@ class _pay_pageState extends State<pay_page> {
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
+    this.isenable,
     required this.hint,
+    this.controller_,
     super.key,
   });
+  final bool? isenable;
   final String hint;
+  final TextEditingController? controller_;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -198,6 +200,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enabled: widget.isenable,
+      controller: widget.controller_,
       decoration: InputDecoration(
         hintText: widget.hint,
         hintStyle: const TextStyle(color: Colors.grey),

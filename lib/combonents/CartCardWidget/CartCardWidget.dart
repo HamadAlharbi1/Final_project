@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
@@ -8,7 +7,8 @@ import 'package:flutter/material.dart';
 
 class CardCartWidget extends StatefulWidget {
   final Tafseel_Details c;
-  const CardCartWidget({super.key, required this.c});
+
+  const CardCartWidget({Key? key, required this.c}) : super(key: key);
 
   @override
   State<CardCartWidget> createState() => _CardCartWidgetState();
@@ -17,8 +17,9 @@ class CardCartWidget extends StatefulWidget {
 class _CardCartWidgetState extends State<CardCartWidget> {
   bool _isChecked = false;
   bool _iChecked = true;
-  void _showBottomSheet(BuildContext context) {
-    showModalBottomSheet(
+
+  void _showBottomSheet(BuildContext context) async {
+    final shouldCheck = await showModalBottomSheet<bool>(
       context: context,
       builder: (BuildContext context) {
         return Container(
@@ -54,7 +55,13 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                         MaterialPageRoute(
                           builder: (context) => const Maqasaty(), // pass the document ID to the next page
                         ),
-                      );
+                      ).then((value) {
+                        if (value == true) {
+                          setState(() {
+                            _isChecked = true;
+                          });
+                        }
+                      });
                     },
                   ),
                 ),
@@ -79,7 +86,13 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                         MaterialPageRoute(
                           builder: (context) => const qyas_khiadhti(), // pass the document ID to the next page
                         ),
-                      );
+                      ).then((value) {
+                        if (value == true) {
+                          setState(() {
+                            _isChecked = true;
+                          });
+                        }
+                      });
                     },
                   ),
                 ),
@@ -99,76 +112,6 @@ class _CardCartWidgetState extends State<CardCartWidget> {
     return Card(
       child: Column(
         children: [
-          // Row(
-          //   children: [
-          //     InkWell(
-          //         onTap: () {
-          //           showDialog(
-          //             context: context,
-          //             builder: (context) {
-          //               return AlertDialog(
-          //                 actions: [
-          //                   Row(
-          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                     children: [
-          //                       InkWell(
-          //                         onTap: () {
-          //                           setState(() {});
-          //                           FirebaseFirestore.instance
-          //                               .collection('cart_content')
-          //                               .doc(widget.c.id.toString())
-          //                               .delete();
-          //                           Navigator.pop(
-          //                             context,
-          //                           );
-          //                         },
-          //                         child: Container(
-          //                             alignment: Alignment.center,
-          //                             padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-          //                             decoration: BoxDecoration(
-          //                               borderRadius: BorderRadius.circular(12),
-          //                               color: Colors_and_Dimentions.containercolor,
-          //                             ),
-          //                             child: const FP_textSTyle(
-          //                               text_content: 'نعم',
-          //                               text_color: Colors_and_Dimentions.fontcolor,
-          //                             )),
-          //                       ),
-          //                       InkWell(
-          //                         onTap: () {
-          //                           Navigator.pop(context);
-          //                         },
-          //                         child: Container(
-          //                             alignment: Alignment.center,
-          //                             padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
-          //                             decoration: BoxDecoration(
-          //                               borderRadius: BorderRadius.circular(12),
-          //                               color: Colors_and_Dimentions.containercolor,
-          //                             ),
-          //                             child: const FP_textSTyle(
-          //                               text_content: 'لا',
-          //                               text_color: Colors_and_Dimentions.fontcolor,
-          //                             )),
-          //                       ),
-          //                     ],
-          //                   ),
-          //                 ],
-          //                 title: const Text(
-          //                   'هل تريد الحذف من السلة   ',
-          //                   style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
-          //                 ),
-          //                 backgroundColor: Colors_and_Dimentions.main_continer_color,
-          //               );
-          //             },
-          //           );
-          //         },
-          //         child: const Icon(
-          //           Icons.cancel_outlined,
-          //           size: 20,
-          //         ))
-          //   ],
-          // ),
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -243,7 +186,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                           value: _isChecked,
                           onChanged: (bool? newValue) {
                             setState(() {
-                              _isChecked = newValue!;
+                              _isChecked = newValue ?? false;
                               if (_isChecked) {
                                 _showBottomSheet(context);
                               }
