@@ -1,3 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
+import 'package:final_project/pages/Orders_Pages.dart';
+import 'package:final_project/pages/after_pay_page.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
@@ -71,6 +75,38 @@ class pay_page extends StatelessWidget {
             Container(
               color: Colors.white,
               child: const CustomTextField(hint: 'MM/DD/YYYY'),
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors_and_Dimentions.main_continer_color),
+              ),
+              onPressed: () {
+                CollectionReference cartRef2 = FirebaseFirestore.instance.collection('cart_content');
+                CollectionReference ordersRef = FirebaseFirestore.instance.collection('_orders');
+
+                cartRef2.get().then((querySnapshot) {
+                  querySnapshot.docs.forEach((doc) {
+                    ordersRef.doc(doc.id).set(doc.data());
+                  });
+                });
+                CollectionReference cartRef = FirebaseFirestore.instance.collection('cart_content');
+
+                cartRef.get().then((querySnapshot) {
+                  querySnapshot.docs.forEach((doc) {
+                    doc.reference.delete();
+                  });
+                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const after_pay(), // pass the document ID to the next page
+                  ),
+                );
+              },
+              child: const FP_textSTyle(
+                text_content: '  حفظ ',
+                font_weight: FontWeight.bold,
+              ),
             ),
           ],
         ),

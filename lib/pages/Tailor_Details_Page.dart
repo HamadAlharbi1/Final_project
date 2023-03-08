@@ -7,6 +7,7 @@ import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/pages/tafseel_details/1yaqa.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
@@ -17,12 +18,16 @@ class Tailor_Details_Page extends StatefulWidget {
   final String tailor_locatioShow;
   final String tailor_rateShow;
   final String tailor_imgShow;
+  final String tailor_availabilityShow;
+  final String tailor_worktimeShow;
   const Tailor_Details_Page({
     required this.tailor_nameShow,
     super.key,
     required this.tailor_locatioShow,
     required this.tailor_rateShow,
     required this.tailor_imgShow,
+    required this.tailor_availabilityShow,
+    required this.tailor_worktimeShow,
   });
 
   @override
@@ -36,9 +41,14 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
   List<Tailor_Details> tailors = [];
   List<Qumash_Details> qumashs = [];
   List<Tafseel_Details> order_details = [];
+  var _uid;
 
   @override
   void initState() {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    User? user = auth.currentUser;
+    _uid = user!.uid;
+
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
     listener_of_order_details?.cancel();
@@ -178,11 +188,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              // FP_textSTyle(
-                              //   text_content: widget.tailor.The_ability,
-                              //   font_size: Colors_and_Dimentions.fontsize_12,
-                              //   text_color: Colors_and_Dimentions.fontcolor2,
-                              // ),
+                              FP_textSTyle(
+                                text_content: widget.tailor_availabilityShow,
+                                font_size: Colors_and_Dimentions.fontsize_12,
+                                text_color: Colors_and_Dimentions.fontcolor2,
+                              ),
                             ],
                           ),
                           Column(
@@ -218,11 +228,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              // FP_textSTyle(
-                              //   text_content: widget.tailor.avarge_period,
-                              //   font_size: Colors_and_Dimentions.fontsize_12,
-                              //   text_color: Colors_and_Dimentions.fontcolor2,
-                              // ),
+                              FP_textSTyle(
+                                text_content: widget.tailor_worktimeShow,
+                                font_size: Colors_and_Dimentions.fontsize_12,
+                                text_color: Colors_and_Dimentions.fontcolor2,
+                              ),
                             ],
                           ),
                           Column(
@@ -265,7 +275,7 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                                 final CollectionReference collectionRef =
                                     FirebaseFirestore.instance.collection('order_details');
 
-                                collectionRef.doc('1').set({
+                                collectionRef.doc('$_uid').set({
                                   'id': '',
                                   'tailor': widget.tailor_nameShow,
                                   'qumash': qumash.Qumash_name,

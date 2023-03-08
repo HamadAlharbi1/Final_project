@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/pages/Home_Page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class tafseel_details extends StatelessWidget {
+class tafseel_details extends StatefulWidget {
   final String title;
   void Function()? MY_ontap1;
   void Function()? MY_ontap2;
@@ -28,6 +29,21 @@ class tafseel_details extends StatelessWidget {
   });
 
   @override
+  State<tafseel_details> createState() => _tafseel_detailsState();
+}
+
+class _tafseel_detailsState extends State<tafseel_details> {
+  var _uid;
+  @override
+  void initState() {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    User? user = auth.currentUser;
+    _uid = user!.uid;
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12),
@@ -48,13 +64,13 @@ class tafseel_details extends StatelessWidget {
               child: Column(
                 children: [
                   FP_textSTyle(
-                    text_content: title,
+                    text_content: widget.title,
                   ),
                   const SizedBox(
                     height: Colors_and_Dimentions.Hight_70,
                   ),
                   InkWell(
-                    onTap: MY_ontap1,
+                    onTap: widget.MY_ontap1,
                     child: Column(
                       children: [
                         Container(
@@ -64,12 +80,12 @@ class tafseel_details extends StatelessWidget {
                           height: Colors_and_Dimentions.pic_H,
                           width: Colors_and_Dimentions.pic_W,
                           child: Image.network(
-                            image_1,
+                            widget.image_1,
                             fit: BoxFit.cover,
                           ),
                         ),
                         FP_textSTyle(
-                          text_content: D_1,
+                          text_content: widget.D_1,
                         )
                       ],
                     ),
@@ -78,7 +94,7 @@ class tafseel_details extends StatelessWidget {
                     height: Colors_and_Dimentions.Hight_70,
                   ),
                   InkWell(
-                    onTap: MY_ontap2,
+                    onTap: widget.MY_ontap2,
                     child: Column(
                       children: [
                         Container(
@@ -88,12 +104,12 @@ class tafseel_details extends StatelessWidget {
                           height: Colors_and_Dimentions.pic_H,
                           width: Colors_and_Dimentions.pic_W,
                           child: Image.network(
-                            image_2,
+                            widget.image_2,
                             fit: BoxFit.cover,
                           ),
                         ),
                         FP_textSTyle(
-                          text_content: D_2,
+                          text_content: widget.D_2,
                         )
                       ],
                     ),
@@ -123,7 +139,10 @@ class tafseel_details extends StatelessWidget {
                                               ),
                                             );
 
-                                            FirebaseFirestore.instance.collection('order_details').doc('1').delete();
+                                            FirebaseFirestore.instance
+                                                .collection('order_details')
+                                                .doc('$_uid')
+                                                .delete();
                                           },
                                           child: Container(
                                               alignment: Alignment.center,
