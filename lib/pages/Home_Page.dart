@@ -20,8 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  List<String> CityList = ['Riyadh', 'الدمام', 'ينبع', 'المدينة', 'الرياض'];
+  List<String> CityList = ['الدمام', 'ينبع', 'المدينة', 'الرياض'];
   String? categoryfilter1;
 
   StreamSubscription? listener_of_Tailors;
@@ -119,6 +118,8 @@ class _HomePageState extends State<HomePage> {
                         tailor_rate: snapshot.data!.docs[index]['Rate'],
                         location: snapshot.data!.docs[index]['location'],
                         img: snapshot.data!.docs[index]['Image_URL'],
+                        tailor_availabilty: snapshot.data!.docs[index]['The_ability'],
+                        tailor_worktime: snapshot.data!.docs[index]['avarge_period'],
                       );
                     });
               } else {

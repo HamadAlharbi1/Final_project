@@ -18,12 +18,16 @@ class Tailor_Details_Page extends StatefulWidget {
   final String tailor_locatioShow;
   final String tailor_rateShow;
   final String tailor_imgShow;
+  final String tailor_availabilityShow;
+  final String tailor_worktimeShow;
   const Tailor_Details_Page({
     required this.tailor_nameShow,
     super.key,
     required this.tailor_locatioShow,
     required this.tailor_rateShow,
     required this.tailor_imgShow,
+    required this.tailor_availabilityShow,
+    required this.tailor_worktimeShow,
   });
 
   @override
@@ -184,11 +188,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              // FP_textSTyle(
-                              //   text_content: widget.tailor.The_ability,
-                              //   font_size: Colors_and_Dimentions.fontsize_12,
-                              //   text_color: Colors_and_Dimentions.fontcolor2,
-                              // ),
+                              FP_textSTyle(
+                                text_content: widget.tailor_availabilityShow,
+                                font_size: Colors_and_Dimentions.fontsize_12,
+                                text_color: Colors_and_Dimentions.fontcolor2,
+                              ),
                             ],
                           ),
                           Column(
@@ -224,11 +228,11 @@ class _Tailor_Details_PageState extends State<Tailor_Details_Page> {
                               const SizedBox(
                                 height: Colors_and_Dimentions.Hight_16,
                               ),
-                              // FP_textSTyle(
-                              //   text_content: widget.tailor.avarge_period,
-                              //   font_size: Colors_and_Dimentions.fontsize_12,
-                              //   text_color: Colors_and_Dimentions.fontcolor2,
-                              // ),
+                              FP_textSTyle(
+                                text_content: widget.tailor_worktimeShow,
+                                font_size: Colors_and_Dimentions.fontsize_12,
+                                text_color: Colors_and_Dimentions.fontcolor2,
+                              ),
                             ],
                           ),
                           Column(
