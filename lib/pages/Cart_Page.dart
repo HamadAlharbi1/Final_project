@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
+import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/pages/Home_Page.dart';
 import 'package:flutter/material.dart';
-
 import '../combonents/CartCardWidget/CartCardWidget.dart';
 import '../combonents/Drawer/DrawerWidget.dart';
 import '../combonents/PriceDetailWidget/PriceDetailWidget.dart';
@@ -17,6 +17,9 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  int sum = 0;
+  double vat = 0;
+  double total = 0;
   StreamSubscription? listener_of_T_Details;
 
   List<Tafseel_Details> T_Details = [];
@@ -26,8 +29,19 @@ class _CartPageState extends State<CartPage> {
     listener_of_T_Details?.cancel();
 
     super.initState();
-
+    getData();
     listenToT_Details();
+  }
+
+  void getData() async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('cart_content').get();
+    snapshot.docs.forEach((doc) {
+      String numberString = doc.get('qumash_Price');
+      sum += int.parse(numberString);
+      vat = sum * 0.15;
+      total = vat + sum;
+    });
+    setState(() {});
   }
 
   listenToT_Details() {
@@ -75,7 +89,11 @@ class _CartPageState extends State<CartPage> {
                 CardCartWidget(
                   c: c,
                 ),
-              const PriceDetailWidget(),
+              PriceDetailWidget(
+                t: total,
+                vat: vat,
+                s: sum,
+              ),
             ],
           ),
         ),

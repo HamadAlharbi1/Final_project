@@ -45,7 +45,6 @@ class FP_textSTyle extends StatelessWidget {
         color: text_color,
         fontSize: font_size,
         fontWeight: font_weight,
-        overflow: TextOverflow.clip,
       ),
     );
   }
