@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
@@ -27,7 +28,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
               const SizedBox(
                 height: 32,
               ),
-              FP_textSTyle(
+              const FP_textSTyle(
                 font_size: 20,
                 font_weight: FontWeight.bold,
                 text_content: 'أخذ المقاس',
@@ -98,6 +99,76 @@ class _CardCartWidgetState extends State<CardCartWidget> {
     return Card(
       child: Column(
         children: [
+          // Row(
+          //   children: [
+          //     InkWell(
+          //         onTap: () {
+          //           showDialog(
+          //             context: context,
+          //             builder: (context) {
+          //               return AlertDialog(
+          //                 actions: [
+          //                   Row(
+          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //                     children: [
+          //                       InkWell(
+          //                         onTap: () {
+          //                           setState(() {});
+          //                           FirebaseFirestore.instance
+          //                               .collection('cart_content')
+          //                               .doc(widget.c.id.toString())
+          //                               .delete();
+          //                           Navigator.pop(
+          //                             context,
+          //                           );
+          //                         },
+          //                         child: Container(
+          //                             alignment: Alignment.center,
+          //                             padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+          //                             decoration: BoxDecoration(
+          //                               borderRadius: BorderRadius.circular(12),
+          //                               color: Colors_and_Dimentions.containercolor,
+          //                             ),
+          //                             child: const FP_textSTyle(
+          //                               text_content: 'نعم',
+          //                               text_color: Colors_and_Dimentions.fontcolor,
+          //                             )),
+          //                       ),
+          //                       InkWell(
+          //                         onTap: () {
+          //                           Navigator.pop(context);
+          //                         },
+          //                         child: Container(
+          //                             alignment: Alignment.center,
+          //                             padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+          //                             decoration: BoxDecoration(
+          //                               borderRadius: BorderRadius.circular(12),
+          //                               color: Colors_and_Dimentions.containercolor,
+          //                             ),
+          //                             child: const FP_textSTyle(
+          //                               text_content: 'لا',
+          //                               text_color: Colors_and_Dimentions.fontcolor,
+          //                             )),
+          //                       ),
+          //                     ],
+          //                   ),
+          //                 ],
+          //                 title: const Text(
+          //                   'هل تريد الحذف من السلة   ',
+          //                   style: TextStyle(color: Colors_and_Dimentions.fontcolor2),
+          //                 ),
+          //                 backgroundColor: Colors_and_Dimentions.main_continer_color,
+          //               );
+          //             },
+          //           );
+          //         },
+          //         child: const Icon(
+          //           Icons.cancel_outlined,
+          //           size: 20,
+          //         ))
+          //   ],
+          // ),
+
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
