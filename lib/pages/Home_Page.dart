@@ -18,9 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  List<String> CityList = ['Riyadh', 'الدمام', 'ينبع', 'المدينة', 'الرياض'];
-=======
   List<String> CityList = ['الدمام', 'ينبع', 'المدينة', 'الرياض'];
 
   String? categoryfilter1;

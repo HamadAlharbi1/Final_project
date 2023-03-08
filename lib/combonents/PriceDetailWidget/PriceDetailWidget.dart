@@ -193,7 +193,7 @@ class PriceDetailWidget extends StatelessWidget {
                               );
                             },
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors_and_Dimentions.icon_color),
                             ),
                             child: const Text(
                               ' إلغاء الشراء',
@@ -212,10 +212,14 @@ class PriceDetailWidget extends StatelessWidget {
                                 ),
                               );
                             },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors_and_Dimentions.BK_color),
+                            ),
                             child: const Text(
                               '  إتمام الشراء ',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: Colors_and_Dimentions.font_color,
                                 fontSize: 18,
                               ),
                             ),
