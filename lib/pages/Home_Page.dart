@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                         img: snapshot.data!.docs[index]['Image_URL'],
                         tailor_availabilty: snapshot.data!.docs[index]['The_ability'],
                         tailor_worktime: snapshot.data!.docs[index]['avarge_period'],
+                        google_map: snapshot.data!.docs[index]['more_details2'],
                       );
                     });
               } else {
