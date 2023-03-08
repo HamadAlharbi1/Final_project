@@ -61,7 +61,10 @@ class _Tailor_CardState extends State<Tailor_Card> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.grey, spreadRadius: 1, blurRadius: 1)
+                  ]),
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +95,8 @@ class _Tailor_CardState extends State<Tailor_Card> {
                                             FP_textSTyle(
                                               text_content: widget.tailor_rate,
                                               font_weight: FontWeight.bold,
-                                              text_color: Colors_and_Dimentions.fontcolor2,
+                                              text_color: Colors_and_Dimentions
+                                                  .fontcolor2,
                                             ),
                                           ],
                                         ),
@@ -117,12 +121,14 @@ class _Tailor_CardState extends State<Tailor_Card> {
                                     FP_textSTyle(
                                       text_content: widget.tailor_name,
                                       font_weight: FontWeight.bold,
-                                      text_color: Colors_and_Dimentions.fontcolor2,
+                                      text_color:
+                                          Colors_and_Dimentions.fontcolor2,
                                     ),
                                     FP_textSTyle(
                                       text_content: widget.location,
                                       font_weight: FontWeight.bold,
-                                      text_color: Colors_and_Dimentions.fontcolor2,
+                                      text_color:
+                                          Colors_and_Dimentions.fontcolor2,
                                     ),
                                     const SizedBox(
                                       height: Colors_and_Dimentions.Hight_16,
@@ -137,7 +143,8 @@ class _Tailor_CardState extends State<Tailor_Card> {
                     ),
                     Container(
                       clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50)),
                       height: Colors_and_Dimentions.pic_H,
                       width: Colors_and_Dimentions.pic_W,
                       child: Image.network(
