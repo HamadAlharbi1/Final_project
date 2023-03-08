@@ -6,14 +6,16 @@ import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
 import 'package:flutter/material.dart';
 
-class after_TD extends StatefulWidget {
-  const after_TD({super.key});
+import '../combonents/Drawer/DrawerWidget.dart';
+
+class orders_page extends StatefulWidget {
+  const orders_page({super.key});
 
   @override
-  State<after_TD> createState() => _after_TDState();
+  State<orders_page> createState() => _orders_pageState();
 }
 
-class _after_TDState extends State<after_TD> {
+class _orders_pageState extends State<orders_page> {
   StreamSubscription? listener_of_T_Details;
 
   List<Tafseel_Details> T_Details = [];
@@ -28,7 +30,7 @@ class _after_TDState extends State<after_TD> {
   }
 
   listenToT_Details() {
-    listener_of_T_Details ??= FirebaseFirestore.instance.collection('cart_content').snapshots().listen((collection) {
+    listener_of_T_Details ??= FirebaseFirestore.instance.collection('_orders').snapshots().listen((collection) {
       List<Tafseel_Details> newList = [];
       for (final doc in collection.docs) {
         final tDetail = Tafseel_Details.fromMap(doc.data());
@@ -42,7 +44,18 @@ class _after_TDState extends State<after_TD> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors_and_Dimentions.BK_color,
+      //backgroundColor: Colors_and_Dimentions.BK_color,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.1),
+        centerTitle: true,
+        title: Image.network(
+          'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
+          fit: BoxFit.contain,
+        ),
+      ),
+      //drawer
+      endDrawer: const DrawerWidget(),
       body: ListView(
         children: [
           for (var i in T_Details)

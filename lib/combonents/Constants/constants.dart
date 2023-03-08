@@ -4,7 +4,7 @@ class Colors_and_Dimentions {
   static const fontcolor = Color(0xFF443830);
   static const fontcolor2 = Color(0xFF443830);
   static const containercolor = Color.fromARGB(255, 234, 225, 225);
-  static const BK_color = Color(0xFFEAEAEA);
+  static const BK_color = Color.fromARGB(255, 226, 226, 226);
   static const main_continer_color = Color(0xFFF1F0F0);
   static const container_color = Color(0xFF796763);
   static const font_color = Color(0xFF443830);

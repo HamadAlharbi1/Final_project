@@ -1,3 +1,4 @@
+import 'package:final_project/pages/maqasaty.dart';
 import 'package:final_project/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
