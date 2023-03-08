@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   String? _uid;
   String? user_email;
   final bool _isFocused = false;
+  bool _isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -41,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: 30,
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,40 +118,52 @@ class _LoginPageState extends State<LoginPage> {
             const Spacer(
               flex: 6,
             ),
-            InkWell(
-              onTap: () async {
-                try {
-                  final email_ = emaillogin.text;
-                  final password_ = passlogin.text;
-                  final user =
-                      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email_, password: password_);
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return const HomePage();
-                  }));
-                } catch (e) {
-                  print(e);
-                }
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 65,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(34),
-                    gradient: const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [Color(0xff796763), Color.fromARGB(255, 104, 85, 80)])),
-                child: const Text(
-                  'تسجيل الدخول',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.white,
+            _isLoading
+                ? const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors_and_Dimentions.fontcolor,
+                    ),
+                  )
+                : InkWell(
+                    onTap: () async {
+                      setState(() {
+                        _isLoading = true;
+                      });
+                      try {
+                        final email_ = emaillogin.text;
+                        final password_ = passlogin.text;
+                        final user =
+                            await FirebaseAuth.instance.signInWithEmailAndPassword(email: email_, password: password_);
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                          return const HomePage();
+                        }));
+                      } catch (e) {
+                        print(e);
+                      }
+                      setState(() {
+                        _isLoading = false;
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 65,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(34),
+                          gradient: const LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [Color(0xff796763), Color.fromARGB(255, 104, 85, 80)])),
+                      child: const Text(
+                        'تسجيل الدخول',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
             const SizedBox(
               height: 20,
             ),

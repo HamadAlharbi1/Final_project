@@ -3,6 +3,7 @@ import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/pages/Home_Page.dart';
 import 'package:final_project/pages/Orders_Pages.dart';
+import 'package:final_project/pages/onbording_page.dart';
 
 import 'package:flutter/material.dart';
 

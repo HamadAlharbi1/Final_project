@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
             const SizedBox(
@@ -148,7 +148,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: const Text(
                   'تسجيل جديد',
                   style: TextStyle(
-                    fontFamily: 'JosefinSans',
                     fontSize: 24,
                     fontWeight: FontWeight.normal,
                     color: Colors.white,
@@ -165,7 +164,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Text(
                   'لديك حساب بالفعل',
                   style: TextStyle(
-                      fontSize: 24, color: Color(0xff796763), fontWeight: FontWeight.w500, fontFamily: 'JosefinSans'),
+                    fontSize: 24,
+                    color: Color(0xff796763),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
