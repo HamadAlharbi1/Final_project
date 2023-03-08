@@ -4,13 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
-import 'package:final_project/combonents/Qumash_Card.dart';
 import 'package:final_project/combonents/Tailor_Card.dart';
-import 'package:final_project/pages/Tailor_Details_Page.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
+import 'Cart_Page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List<String> CityList = ['Riyadh', 'الدمام', 'ينبع', 'المدينة', 'الرياض'];
   String? categoryfilter1;
 
@@ -33,10 +30,7 @@ class _HomePageState extends State<HomePage> {
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
     super.initState();
-
     listenToQumashs();
-
-    // listenToTailors();
   }
 
   listenToTailors() {
@@ -75,16 +69,21 @@ class _HomePageState extends State<HomePage> {
         leading: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.filter_list_sharp),
+              icon: const Icon(Icons.filter_list_sharp),
               color: Colors_and_Dimentions.icon_color,
               onPressed: () {
                 ShowFilterDialog(context);
               },
             ),
             IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               color: Colors_and_Dimentions.icon_color,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartPage()),
+                );
+              },
             ),
           ],
         ),
@@ -162,8 +161,8 @@ class _HomePageState extends State<HomePage> {
           return AlertDialog(
             title: Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Text(
+              children: const [
+                Text(
                   'اختر المدينة ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -197,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.symmetric(vertical: 2),
                             child: Text(
                               CityList[index],
-                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                             ),
                           )
                         ],

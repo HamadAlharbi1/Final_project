@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
+import 'package:final_project/pages/Home_Page.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/CartCardWidget/CartCardWidget.dart';
@@ -51,6 +52,15 @@ class _CartPageState extends State<CartPage> {
         title: Image.network(
           'https://cdn.discordapp.com/attachments/1081328393364189276/1082219855991803984/image_146.png',
           fit: BoxFit.contain,
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+          },
         ),
       ),
       //drawer
