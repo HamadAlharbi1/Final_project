@@ -9,6 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MaterialApp(
+    theme: ThemeData(fontFamily: 'Amiri'),
     debugShowCheckedModeBanner: false,
     home: buildFirstWidget(),
   ));
