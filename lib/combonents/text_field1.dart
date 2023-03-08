@@ -5,6 +5,8 @@ class TextField1 extends StatelessWidget {
   const TextField1({
     this.textType,
     super.key,
+    this.prefix_icon,
+    this.prefix_icon_color,
     required this.Enable,
     required this.secure_text,
     required this.controll,
@@ -19,6 +21,8 @@ class TextField1 extends StatelessWidget {
   final IconData? icon1;
   final bool Enable;
   final TextInputType? textType;
+  final Widget? prefix_icon;
+  final Color? prefix_icon_color;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,8 @@ class TextField1 extends StatelessWidget {
         obscureText: secure_text,
         controller: controll,
         decoration: InputDecoration(
+          prefixIcon: prefix_icon,
+          prefixIconColor: prefix_icon_color,
           hintText: hint1,
           hintTextDirection: TextDirection.ltr,
           labelStyle: const TextStyle(
