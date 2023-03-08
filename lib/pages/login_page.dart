@@ -1,4 +1,4 @@
-import 'package:final_project/pages/Cart_Page.dart';
+
 import 'package:final_project/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -54,13 +54,30 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(
-              height: 120,
+              height: 50,
             ),
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               const SizedBox(
-                height: 34,
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'البريد الإلكتروني',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors_and_Dimentions.fontcolor,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 8,
               ),
               TextField1(
+                prefix_icon: Icon(Icons.email_sharp),
+                prefix_icon_color: Colors_and_Dimentions.fontcolor,
                 Enable: true,
                 secure_text: false,
                 controll: emaillogin,
@@ -69,9 +86,26 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ]),
             const SizedBox(
-              height: 34,
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'كلمة المرور',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors_and_Dimentions.fontcolor,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 8,
             ),
             TextField1(
+              prefix_icon: Icon(Icons.lock),
+              prefix_icon_color: Colors_and_Dimentions.fontcolor,
               Enable: true,
               secure_text: true,
               controll: passlogin,
@@ -108,7 +142,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text(
                   'تسجيل الدخول',
                   style: TextStyle(
-                    fontFamily: 'JosefinSans',
                     fontSize: 24,
                     fontWeight: FontWeight.normal,
                     color: Colors.white,
@@ -134,7 +167,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'ليس لديك حساب؟ سجل من هنا',
                   style: TextStyle(
-                      fontSize: 24, color: Color(0xff796763), fontWeight: FontWeight.w500, fontFamily: 'JosefinSans'),
+                    fontSize: 24,
+                    color: Color(0xff796763),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../combonents/Constants/constants.dart';
-import '../combonents/Drawer/DrawerWidget.dart';
 
 class Maqasaty extends StatefulWidget {
   const Maqasaty({super.key});
@@ -46,6 +45,9 @@ class _MaqasatyState extends State<Maqasaty> {
                   },
                   child: const Icon(Icons.add)),
               automaticallyImplyLeading: false,
+              actions: [
+                InkWell(onTap: () => {Navigator.pop(context, () => null)}, child: const Icon(Icons.arrow_forward))
+              ],
               elevation: 0,
               backgroundColor: Colors_and_Dimentions.icon_color,
               centerTitle: true,
@@ -57,7 +59,7 @@ class _MaqasatyState extends State<Maqasaty> {
           ),
         ),
       ),
-      endDrawer: const DrawerWidget(),
+      // endDrawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: StreamBuilder<QuerySnapshot>(
