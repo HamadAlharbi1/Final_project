@@ -1,6 +1,7 @@
 import 'package:final_project/App.dart';
 import 'package:final_project/firebase_options.dart';
 import 'package:final_project/pages/login_page.dart';
+import 'package:final_project/pages/onbording_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ Widget buildFirstWidget() {
   final User? firebaseUser = FirebaseAuth.instance.currentUser;
 
   if (firebaseUser == null) {
-    return const LoginPage();
+    return const OnboardingPage();
   } else {
     return const MyApp();
   }

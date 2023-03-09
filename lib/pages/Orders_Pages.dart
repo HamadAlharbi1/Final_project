@@ -89,7 +89,9 @@ class _orders_pageState extends State<orders_page> {
                                         font_weight: FontWeight.bold,
                                       ),
                                       FP_textSTyle(
+                                        font_weight: FontWeight.bold,
                                         text_content: "قيد التنفيذ",
+                                        text_color: Color.fromARGB(255, 255, 234, 0),
                                       ),
                                     ],
                                   ),
@@ -111,6 +113,7 @@ class _orders_pageState extends State<orders_page> {
                                 height: 32,
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -145,12 +148,12 @@ class _orders_pageState extends State<orders_page> {
                                   Row(
                                     children: [
                                       const FP_textSTyle(
-                                        font_size: 32,
+                                        font_size: 20,
                                         font_weight: FontWeight.bold,
                                         text_content: 'ريال',
                                       ),
                                       FP_textSTyle(
-                                        font_size: 32,
+                                        font_size: 20,
                                         font_weight: FontWeight.bold,
                                         text_content: i.qumash_Price,
                                       ),

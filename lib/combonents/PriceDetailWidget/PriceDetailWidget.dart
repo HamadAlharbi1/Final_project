@@ -4,9 +4,17 @@ import 'package:final_project/pages/Home_Page.dart';
 import 'package:final_project/pages/pay_page.dart';
 import 'package:flutter/material.dart';
 
-class PriceDetailWidget extends StatelessWidget {
-  const PriceDetailWidget({super.key});
+class PriceDetailWidget extends StatefulWidget {
+  double vat;
+  double t;
+  int s;
+  PriceDetailWidget({super.key, required this.s, required this.vat, required this.t});
 
+  @override
+  State<PriceDetailWidget> createState() => _PriceDetailWidgetState();
+}
+
+class _PriceDetailWidgetState extends State<PriceDetailWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,9 +32,9 @@ class PriceDetailWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
-                            '',
+                            '${widget.s}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -47,9 +55,9 @@ class PriceDetailWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
-                            ' 0 ريال',
+                            ' ريال 0 ',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -72,9 +80,9 @@ class PriceDetailWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
-                            ' ',
+                            '${widget.vat}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -97,9 +105,9 @@ class PriceDetailWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
-                            ' ',
+                            '${widget.t}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
