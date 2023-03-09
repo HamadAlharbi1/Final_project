@@ -77,11 +77,11 @@ class _HomePageState extends State<HomePage> {
       //drawer
       endDrawer: Container(color: Colors.white, child: const DrawerWidget()),
       body: Container(
-        decoration: BoxDecoration(
-          boxShadow: const [
+        decoration: const BoxDecoration(
+          boxShadow: [
             BoxShadow(color: Colors.white),
           ],
-          color: Theme.of(context).primaryColor,
+          // color: Theme.of(context).primaryColor,
         ),
         child: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance

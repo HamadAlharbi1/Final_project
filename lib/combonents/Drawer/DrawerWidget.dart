@@ -55,6 +55,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Drawer(
+      backgroundColor: Theme.of(context).primaryColor,
       child: Column(
         children: [
           UserAccountsDrawerHeader(

@@ -22,134 +22,145 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(bottom: 80),
-        child: PageView(
-          controller: controler,
-          children: [
-            Container(
-              color: Colors.white,
-              child: Column(
+      body: ListView(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(bottom: 80),
+            child: SizedBox(
+              height: 524,
+              width: 500,
+              child: PageView(
+                controller: controler,
                 children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  SizedBox(
-                    height: 400,
-                    width: 400,
-                    child: Image.network(
-                      'https://cdn.discordapp.com/attachments/1081328393364189276/1083115493990338560/Group_2962.png',
-                      fit: BoxFit.cover,
+                  Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 60,
+                        ),
+                        SizedBox(
+                          height: 400,
+                          width: 400,
+                          child: Image.network(
+                            'https://cdn.discordapp.com/attachments/1081328393364189276/1083115493990338560/Group_2962.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'فصل من بيتكك وافتك من الزحمة',
+                          style: TextStyle(
+                              fontFamily: 'Amiri',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors_and_Dimentions.fontcolor),
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text(
-                    'فصل من بيتكك وافتك من الزحمة',
-                    style: TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: Colors_and_Dimentions.fontcolor),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  SizedBox(
-                    height: 400,
-                    width: 400,
-                    child: Image.network(
-                      'https://cdn.discordapp.com/attachments/1081328393364189276/1083124600415715348/Group_2981.png',
-                      fit: BoxFit.cover,
+                  Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 60,
+                        ),
+                        SizedBox(
+                          height: 400,
+                          width: 400,
+                          child: Image.network(
+                            'https://cdn.discordapp.com/attachments/1081328393364189276/1083124600415715348/Group_2981.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'تواص اسرع مع اي خياط',
+                          style: TextStyle(
+                              fontFamily: 'Amiri',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors_and_Dimentions.fontcolor),
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text(
-                    'تواص اسرع مع اي خياط',
-                    style: TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: Colors_and_Dimentions.fontcolor),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: Image.network(
-                      'https://cdn.discordapp.com/attachments/1081328393364189276/1081621027513188473/image_13_BIG.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'فصل اسرع فصل اروع',
-                        style: TextStyle(
-                            fontFamily: 'Amiri',
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: Colors_and_Dimentions.fontcolor),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                        return LoginPage();
-                      }));
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors_and_Dimentions.fontcolor, borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: EdgeInsets.all(14),
-                        child: Column(
-                          children: [
+                  Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 60,
+                        ),
+                        SizedBox(
+                          height: 200,
+                          width: 200,
+                          child: Image.network(
+                            'https://cdn.discordapp.com/attachments/1081328393364189276/1081621027513188473/image_13_BIG.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: const [
                             Text(
-                              'فصل ثوبك مع فصلي',
+                              'فصل اسرع فصل اروع',
                               style: TextStyle(
-                                  fontFamily: 'Amiri', fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white),
+                                  fontFamily: 'Amiri',
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors_and_Dimentions.fontcolor),
                             ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            )
                           ],
                         ),
-                      ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                              return const LoginPage();
+                            }));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors_and_Dimentions.fontcolor, borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(14),
+                              child: Column(
+                                children: const [
+                                  Text(
+                                    'فصل ثوبك مع فصلي',
+                                    style: TextStyle(
+                                        fontFamily: 'Amiri',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomSheet: Container(
         color: Colors.white,
