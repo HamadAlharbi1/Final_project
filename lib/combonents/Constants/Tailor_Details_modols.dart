@@ -68,7 +68,7 @@ class Tailor_Detail {
         location_URL: 'https://maps.app.goo.gl/DfSg3u3n9MbhhDvs6?g_st=ic',
         Rate: '4.3',
         id: '7',
-        Tailor_name: "   روشن",
+        Tailor_name: "روشن",
         location: 'المدينة',
         The_ability: 'متوفر',
         avarge_period: '5 ايام عمل  '),

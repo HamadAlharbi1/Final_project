@@ -55,14 +55,14 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Drawer(
-      backgroundColor: Theme.of(context).primaryColor,
+      // backgroundColor: Theme.of(context).primaryColor,
       child: Column(
         children: [
           UserAccountsDrawerHeader(
             accountName: Text(user_name == null ? '' : user_name!,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18)),
             accountEmail: Text(user_email == null ? '' : '$user_email',
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18)),
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -71,6 +71,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ),
             ),
             currentAccountPicture: const CircleAvatar(
+              backgroundColor: Colors.transparent,
               backgroundImage: NetworkImage(
                   'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/271deea8-e28c-41a3-aaf5-2913f5f48be6/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI3MWRlZWE4LWUyOGMtNDFhMy1hYWY1LTI5MTNmNWY0OGJlNlwvZGU3ODM0cy02NTE1YmQ0MC04YjJjLTRkYzYtYTg0My01YWMxYTk1YThiNTUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BopkDn1ptIwbmcKHdAOlYHyAOOACXW0Zfgbs0-6BY-E'),
             ),
@@ -95,7 +96,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   },
                 ),
                 ListTile(
-                  trailing: const Icon(Icons.edit),
+                  trailing: const Icon(Icons.pageview),
                   title: Container(
                     alignment: Alignment.centerRight,
                     child: const Text('طلباتي'),
@@ -110,23 +111,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     // Handle item 3 tap
                   },
                 ),
-                ListTile(
-                  trailing: const Icon(Icons.edit),
-                  title: Container(
-                    alignment: Alignment.centerRight,
-                    child: const Text('Mood'),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Switch.adaptive(
-                    value: themeProvider.isDarkMode,
-                    onChanged: (value) {
-                      final provider = Provider.of<ThemeProvider>(context, listen: false);
-                      provider.toggleTheme(value);
-                    },
-                  ),
-                )
+                // ListTile(
+                //   trailing: const Icon(Icons.sunny),
+                //   title: Container(
+                //     alignment: Alignment.centerRight,
+                //     child: const Text('Mood'),
+                //   ),
+                // ),
+                // Container(
+                //   alignment: Alignment.centerRight,
+                //   child: Switch.adaptive(
+                //     value: themeProvider.isDarkMode,
+                //     onChanged: (value) {
+                //       final provider = Provider.of<ThemeProvider>(context, listen: false);
+                //       provider.toggleTheme(value);
+                //     },
+                //   ),
+                // )
                 // Add more items as needed
               ],
             ),
@@ -153,7 +154,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: const Text(
                 'تسجيل الخروج',
                 style: TextStyle(
-                  fontFamily: 'JosefinSans',
                   fontSize: 24,
                   fontWeight: FontWeight.normal,
                   color: Colors.white,

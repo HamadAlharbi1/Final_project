@@ -15,6 +15,9 @@ void main() async {
       return child!;
     },
     child: MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Amiri',
+      ),
       debugShowCheckedModeBanner: false,
       home: buildFirstWidget(),
     ),
@@ -39,7 +42,7 @@ Widget buildFirstWidget() {
   final User? firebaseUser = FirebaseAuth.instance.currentUser;
 
   if (firebaseUser == null) {
-    return const LoginPage();
+    return const OnboardingPage();
   } else {
     return const MyApp();
   }

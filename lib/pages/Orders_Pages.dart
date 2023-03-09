@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/Constants/Tafseel_Detail.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/img_container.dart';
+import 'package:final_project/pages/Home_Page.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
@@ -46,6 +47,13 @@ class _orders_pageState extends State<orders_page> {
     return Scaffold(
       //backgroundColor: Colors_and_Dimentions.BK_color,
       appBar: AppBar(
+        leading: InkWell(
+            onTap: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                return HomePage();
+              }));
+            },
+            child: Icon(Icons.home)),
         elevation: 0,
         backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,

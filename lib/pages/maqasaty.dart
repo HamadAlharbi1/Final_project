@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/combonents/CartCardWidget/CartCardWidget.dart';
+import 'package:final_project/pages/Home_Page.dart';
 import 'package:final_project/pages/fill_new_maqas.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -39,13 +40,30 @@ class _MaqasatyState extends State<Maqasaty> {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 1, sigmaY: 10),
             child: AppBar(
-              leading: InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const fillNewMaqas();
-                    }));
-                  },
-                  child: const Icon(Icons.add)),
+              leading: Row(
+                children: [
+                  SizedBox(
+                    width: 4,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return const fillNewMaqas();
+                        }));
+                      },
+                      child: const Icon(Icons.add)),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                          return HomePage();
+                        }));
+                      },
+                      child: Icon(Icons.home)),
+                ],
+              ),
               automaticallyImplyLeading: false,
               elevation: 0,
               backgroundColor: Colors_and_Dimentions.icon_color,

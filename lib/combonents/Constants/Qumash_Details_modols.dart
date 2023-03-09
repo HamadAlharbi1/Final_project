@@ -58,7 +58,7 @@ class Qumash_Detail {
         Qumash_name: 'بليرن',
         Describtion: 'نسيج تربيعي من القطن الصناعي ناعم مريح وبارد وجيد جداً في مقاومته التكسير',
         The_ability: 'متوفر',
-        price: '294'),
+        price: '234'),
     Qumash_Details(
         Image_URL: 'https://aljedaie.com/pub/media/catalog/product/cache/dbe9a78d4cde7d5b7f628bb032d21033/_/-/_-_2.jpg',
         country_of_manufacture: '',

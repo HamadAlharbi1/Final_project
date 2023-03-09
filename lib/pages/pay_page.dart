@@ -18,7 +18,6 @@ class pay_page extends StatefulWidget {
 }
 
 class _pay_pageState extends State<pay_page> {
-
   StreamSubscription? listener_of_T_Details;
 
   List<Tafseel_Details> T_Details = [];
@@ -37,7 +36,6 @@ class _pay_pageState extends State<pay_page> {
 
   var _uid;
   TextEditingController dateinput = TextEditingController();
-
 
   @override
   void initState() {
@@ -165,7 +163,6 @@ class _pay_pageState extends State<pay_page> {
                     Color.fromARGB(255, 142, 63, 63)
                   ],
                 ),
-
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,7 +173,6 @@ class _pay_pageState extends State<pay_page> {
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
-
                     ),
                   ),
                   const SizedBox(height: 8.0),
@@ -203,7 +199,7 @@ class _pay_pageState extends State<pay_page> {
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.white,
                     ),
-                    child: const CustomTextField(hint: 'XXXX-XXXX-XXXX-XXXX'),
+                    child: const CustomTextField(hint: 'Holder Name'),
                   ),
                   const Text(
                     'Expire Date',
@@ -220,7 +216,7 @@ class _pay_pageState extends State<pay_page> {
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.white,
                     ),
-                    child: const CustomTextField(hint: 'MM/DD/yyyy'),
+                    child: const CustomTextField(hint: 'MM/Y'),
                   ),
                   // TextField(
                   //   controller: dateinput, //editing controller of this TextField

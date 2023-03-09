@@ -22,6 +22,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         children: [
           Container(
@@ -80,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           height: 20,
                         ),
                         const Text(
-                          'تواص اسرع مع اي خياط',
+                          'تواصل اسرع مع اي خياط',
                           style: TextStyle(
                               fontFamily: 'Amiri',
                               fontSize: 24,
@@ -111,7 +112,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         Column(
                           children: const [
                             Text(
-                              'فصل اسرع فصل اروع',
+                              '',
                               style: TextStyle(
                                   fontFamily: 'Amiri',
                                   fontSize: 24,
@@ -152,7 +153,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

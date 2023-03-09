@@ -1,4 +1,3 @@
-
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/pages/Cart_Page.dart';
 import 'package:final_project/pages/Home_Page.dart';
@@ -60,13 +59,24 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(
-              height: 120,
+              height: 80,
             ),
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               const SizedBox(
                 height: 34,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'البريد الإلكتروني',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
               TextField1(
+                prefix_icon: Icon(Icons.email),
+                prefix_icon_color: Colors_and_Dimentions.fontcolor,
                 Enable: true,
                 secure_text: false,
                 controll: emaillogin,
@@ -75,9 +85,20 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ]),
             const SizedBox(
-              height: 34,
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'كلمة المرور',
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+              ],
             ),
             TextField1(
+              prefix_icon_color: Colors_and_Dimentions.fontcolor,
+              prefix_icon: Icon(Icons.lock),
               Enable: true,
               secure_text: true,
               controll: passlogin,
@@ -87,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
             const Spacer(
               flex: 6,
             ),
-
             _isLoading
                 ? const Center(
                     child: CircularProgressIndicator(
@@ -133,7 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-
                   ),
             const SizedBox(
               height: 20,
@@ -153,7 +172,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'ليس لديك حساب؟ سجل من هنا',
                   style: TextStyle(
-                      fontSize: 24, color: Color(0xff796763), fontWeight: FontWeight.w500, fontFamily: 'JosefinSans'),
+                    fontSize: 24,
+                    color: Color(0xff796763),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),

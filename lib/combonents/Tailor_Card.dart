@@ -115,7 +115,7 @@ class _Tailor_CardState extends State<Tailor_Card> {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     SizedBox(
-                                      height: 50,
+                                      height: 24,
                                       child: Expanded(
                                         child: FP_textSTyle(
                                           text_content: widget.tailor_name,
@@ -126,7 +126,7 @@ class _Tailor_CardState extends State<Tailor_Card> {
                                     ),
                                     FP_textSTyle(
                                       text_content: widget.location,
-                                      font_weight: FontWeight.bold,
+                                      font_weight: FontWeight.w200,
                                       text_color: Colors_and_Dimentions.fontcolor2,
                                     ),
                                     const SizedBox(

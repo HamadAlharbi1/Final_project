@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       themeMode: themeProvider.themeMode,
       theme: MyThemes.lightTheme,
-      darkTheme: MyThemes.darkTheme,
+      darkTheme: MyThemes.lightTheme,
       home: const HomePage(),
       debugShowCheckedModeBanner: false,
     );
