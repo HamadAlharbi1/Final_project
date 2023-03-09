@@ -186,7 +186,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                           value: _isChecked,
                           onChanged: (bool? newValue) {
                             setState(() {
-                              _isChecked = newValue ?? false;
+                              _isChecked = newValue!;
                               if (_isChecked) {
                                 _showBottomSheet(context);
                               }

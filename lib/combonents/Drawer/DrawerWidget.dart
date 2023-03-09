@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/App.dart';
 import 'package:final_project/pages/Orders_Pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../pages/login_page.dart';
 import '../../pages/maqasaty.dart';
@@ -51,6 +53,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Drawer(
       child: Column(
         children: [
@@ -106,6 +109,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     // Handle item 3 tap
                   },
                 ),
+                ListTile(
+                  trailing: const Icon(Icons.edit),
+                  title: Container(
+                    alignment: Alignment.centerRight,
+                    child: const Text('Mood'),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Switch.adaptive(
+                    value: themeProvider.isDarkMode,
+                    onChanged: (value) {
+                      final provider = Provider.of<ThemeProvider>(context, listen: false);
+                      provider.toggleTheme(value);
+                    },
+                  ),
+                )
                 // Add more items as needed
               ],
             ),
@@ -145,6 +165,28 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           )
         ],
       ),
+    );
+  }
+}
+
+class ChangeThemeButtonWidget extends StatefulWidget {
+  const ChangeThemeButtonWidget({super.key});
+
+  @override
+  State<ChangeThemeButtonWidget> createState() => _ChangeThemeButtonWidgetState();
+}
+
+class _ChangeThemeButtonWidgetState extends State<ChangeThemeButtonWidget> {
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    return Switch.adaptive(
+      value: themeProvider.isDarkMode,
+      onChanged: (value) {
+        final provider = Provider.of<ThemeProvider>(context, listen: false);
+        provider.toggleTheme(value);
+      },
     );
   }
 }

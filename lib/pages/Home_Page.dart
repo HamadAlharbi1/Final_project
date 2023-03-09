@@ -1,17 +1,21 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/App.dart';
 import 'package:final_project/combonents/Constants/Qumash_Details_modols.dart';
 import 'package:final_project/combonents/Constants/Tailor_Details_modols.dart';
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/combonents/Tailor_Card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../combonents/Drawer/DrawerWidget.dart';
 import 'Cart_Page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -31,41 +35,14 @@ class _HomePageState extends State<HomePage> {
     listener_of_Tailors?.cancel();
     listener_of_Qumashs?.cancel();
     super.initState();
-    // listenToQumashs();
   }
-
-  // listenToTailors() {
-  //   listener_of_Tailors ??= FirebaseFirestore.instance
-  //       .collection('List_of_Tailors')
-  //       .where('location', isEqualTo: 'ينبع')
-  //       .snapshots()
-  //       .listen((collection) {
-  //     List<Tailor_Details> newList = [];
-  //     for (final doc in collection.docs) {
-  //       final tailor = Tailor_Details.fromMap(doc.data());
-  //       newList.add(tailor);
-  //     }
-  //     tailors = newList;
-  //     setState(() {});
-  //   });
-  // }
-
-  // listenToQumashs() {
-  //   listener_of_Qumashs ??= FirebaseFirestore.instance.collection('List_of_Qumashs').snapshots().listen((collection) {
-  //     List<Qumash_Details> newList = [];
-  //     for (final doc in collection.docs) {
-  //       final qumash = Qumash_Details.fromMap(doc.data());
-  //       newList.add(qumash);
-  //     }
-  //     qumashs = newList;
-  //     setState(() {});
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
+    final text = Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark ? 'DarkMode' : 'LightTheme';
     return Scaffold(
       appBar: AppBar(
+        // iconTheme: Theme.of(context).iconTheme,
         leadingWidth: 100,
         leading: Row(
           children: [
@@ -88,6 +65,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        // actions: const [ChangeThemeButtonWidget()],
         elevation: 0,
         backgroundColor: Colors_and_Dimentions.icon_color,
         centerTitle: true,
@@ -97,65 +75,71 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       //drawer
-      endDrawer: const DrawerWidget(),
-      body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('List_of_Tailors')
-            .where('location', isEqualTo: categoryfilter1)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.connectionState == ConnectionState.active) {
-            {
-              if (snapshot.data!.docs.isNotEmpty) {
-                return ListView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) {
-                      return Tailor_Card(
-                        tailor_name: snapshot.data!.docs[index]['Tailor_name'],
-                        tailor_rate: snapshot.data!.docs[index]['Rate'],
-                        location: snapshot.data!.docs[index]['location'],
-                        img: snapshot.data!.docs[index]['Image_URL'],
-                        tailor_availabilty: snapshot.data!.docs[index]
-                            ['The_ability'],
-                        tailor_worktime: snapshot.data!.docs[index]
-                            ['avarge_period'],
-                        google_map: snapshot.data!.docs[index]['more_details2'],
-                      );
-                    });
-              } else {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.search_off,
-                          color: Colors_and_Dimentions.fontcolor,
-                        ),
-                        Center(
-                          child: Text(
-                            'لا يوجد خياطين في هذه المدينة',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors_and_Dimentions.fontcolor,
-                                fontSize: 26,
-                                fontStyle: FontStyle.italic),
+      endDrawer: Container(color: Colors.white, child: const DrawerWidget()),
+      body: Container(
+        decoration: BoxDecoration(
+          boxShadow: const [
+            BoxShadow(color: Colors.white),
+          ],
+          color: Theme.of(context).primaryColor,
+        ),
+        child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('List_of_Tailors')
+              .where('location', isEqualTo: categoryfilter1)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.connectionState == ConnectionState.active) {
+              {
+                if (snapshot.data!.docs.isNotEmpty) {
+                  return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        return Tailor_Card(
+                          tailor_name: snapshot.data!.docs[index]['Tailor_name'],
+                          tailor_rate: snapshot.data!.docs[index]['Rate'],
+                          location: snapshot.data!.docs[index]['location'],
+                          img: snapshot.data!.docs[index]['Image_URL'],
+                          tailor_availabilty: snapshot.data!.docs[index]['The_ability'],
+                          tailor_worktime: snapshot.data!.docs[index]['avarge_period'],
+                          google_map: snapshot.data!.docs[index]['more_details2'],
+                        );
+                      });
+                } else {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.search_off,
+                            color: Colors_and_Dimentions.fontcolor,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
+                          Center(
+                            child: Text(
+                              'لا يوجد خياطين في هذه المدينة',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Theme.of(context).iconTheme.color,
+                                  fontSize: 26,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                }
               }
             }
-          }
-          return const Text('somthing went wrong');
-        },
+            return const Text('somthing went wrong');
+          },
+        ),
       ),
     );
   }
@@ -202,8 +186,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.symmetric(vertical: 2),
                             child: Text(
                               CityList[index],
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w400),
+                              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                             ),
                           )
                         ],
