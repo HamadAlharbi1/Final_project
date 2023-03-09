@@ -11,11 +11,11 @@ class CardCartWidget extends StatefulWidget {
   const CardCartWidget({Key? key, required this.c}) : super(key: key);
 
   @override
-  State<CardCartWidget> createState() => _CardCartWidgetState();
+  State<CardCartWidget> createState() => CardCartWidgetState();
 }
 
-class _CardCartWidgetState extends State<CardCartWidget> {
-  bool _isChecked = false;
+class CardCartWidgetState extends State<CardCartWidget> {
+  bool isChecked = false;
   bool _iChecked = true;
 
   void _showBottomSheet(BuildContext context) async {
@@ -58,7 +58,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                       ).then((value) {
                         if (value == true) {
                           setState(() {
-                            _isChecked = true;
+                            isChecked = true;
                           });
                         }
                       });
@@ -89,7 +89,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                       ).then((value) {
                         if (value == true) {
                           setState(() {
-                            _isChecked = true;
+                            isChecked = true;
                           });
                         }
                       });
@@ -112,7 +112,6 @@ class _CardCartWidgetState extends State<CardCartWidget> {
     return Card(
       child: Column(
         children: [
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -129,7 +128,6 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
-
                       ),
                       const SizedBox(height: 5),
                       SizedBox(
@@ -146,7 +144,7 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                         height: 12,
                       ),
                       FP_textSTyle(
-                        text_content: '${widget.c.qumash_Price}',
+                        text_content: widget.c.qumash_Price,
                         font_size: 20,
                         font_weight: FontWeight.bold,
                       )
@@ -195,13 +193,13 @@ class _CardCartWidgetState extends State<CardCartWidget> {
                         padding: const EdgeInsets.all(8.0),
                         child: CheckboxListTile(
                           title: const Text('اختيار المقاس'),
-                          value: _isChecked,
+                          value: isChecked,
                           onChanged: (bool? newValue) {
                             setState(() {
-                              _isChecked = newValue!;
-                              if (_isChecked) {
-                                _showBottomSheet(context);
-                              }
+                              // _isChecked = newValue!;
+                              // if (_isChecked) {
+                              _showBottomSheet(context);
+                              // }
                             });
                           },
                         ),

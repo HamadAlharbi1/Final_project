@@ -34,7 +34,7 @@ Widget buildFirstWidget() {
   final User? firebaseUser = FirebaseAuth.instance.currentUser;
 
   if (firebaseUser == null) {
-    return const OnboardingPage();
+    return const LoginPage();
   } else {
     return const MyApp();
   }

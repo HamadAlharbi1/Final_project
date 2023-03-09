@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/combonents/CartCardWidget/CartCardWidget.dart';
 import 'package:final_project/pages/fill_new_maqas.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -73,15 +74,24 @@ class _MaqasatyState extends State<Maqasaty> {
                   return ListView.builder(
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
-                        return maqasaty_card(
-                          maqasid: snapshot.data!.docs[index]['maqasid'],
-                          meger_nameShow: snapshot.data!.docs[index]['megerName'],
-                          tall_show: snapshot.data!.docs[index]['tall'],
-                          uploadedBy_show: snapshot.data!.docs[index]['uploadedBy'],
-                          neck_weidthSow: snapshot.data!.docs[index]['neckWeidth'],
-                          shoulder_weidthShow: snapshot.data!.docs[index]['shoulderWeidth'],
-                          chest_weidthShow: snapshot.data!.docs[index]['chestWeidth'],
-                          km_tallShow: snapshot.data!.docs[index]['kmTall'],
+                        return InkWell(
+                          onTap: () {
+                            Navigator.pop(context, true);
+                            Navigator.pop(context, true);
+                            context.findAncestorStateOfType<CardCartWidgetState>()?.isChecked = true;
+                            context.findAncestorStateOfType<CardCartWidgetState>()?.setState(() {});
+                            ;
+                          },
+                          child: maqasaty_card(
+                            maqasid: snapshot.data!.docs[index]['maqasid'],
+                            meger_nameShow: snapshot.data!.docs[index]['megerName'],
+                            tall_show: snapshot.data!.docs[index]['tall'],
+                            uploadedBy_show: snapshot.data!.docs[index]['uploadedBy'],
+                            neck_weidthSow: snapshot.data!.docs[index]['neckWeidth'],
+                            shoulder_weidthShow: snapshot.data!.docs[index]['shoulderWeidth'],
+                            chest_weidthShow: snapshot.data!.docs[index]['chestWeidth'],
+                            km_tallShow: snapshot.data!.docs[index]['kmTall'],
+                          ),
                         );
                       });
                 } else {
