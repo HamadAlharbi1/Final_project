@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../combonents/Constants/constants.dart';
+import '../combonents/Drawer/DrawerWidget.dart';
 
 class Maqasaty extends StatefulWidget {
   const Maqasaty({super.key});
@@ -45,9 +46,6 @@ class _MaqasatyState extends State<Maqasaty> {
                   },
                   child: const Icon(Icons.add)),
               automaticallyImplyLeading: false,
-              actions: [
-                InkWell(onTap: () => {Navigator.pop(context, () => null)}, child: const Icon(Icons.arrow_forward))
-              ],
               elevation: 0,
               backgroundColor: Colors_and_Dimentions.icon_color,
               centerTitle: true,
@@ -59,7 +57,7 @@ class _MaqasatyState extends State<Maqasaty> {
           ),
         ),
       ),
-      // endDrawer: const DrawerWidget(),
+      endDrawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: StreamBuilder<QuerySnapshot>(
@@ -150,136 +148,133 @@ class maqasaty_card extends StatefulWidget {
 class _maqasaty_cardState extends State<maqasaty_card> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.all(12),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    ShowDialogFunction3(context);
-                  },
-                  child: const Text(
-                    'حذف',
-                    style: TextStyle(color: Colors.red, fontSize: 16),
-                  ),
+    return Container(
+      margin: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)]),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  ShowDialogFunction3(context);
+                },
+                child: const Text(
+                  'حذف',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
                 ),
-                const Spacer(
-                  flex: 2,
+              ),
+              const Spacer(
+                flex: 2,
+              ),
+              Text(
+                widget.meger_nameShow ?? '',
+                style: const TextStyle(
+                  color: Colors_and_Dimentions.font_color,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  widget.meger_nameShow ?? '',
-                  style: const TextStyle(
-                    color: Colors_and_Dimentions.font_color,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Spacer(
-                  flex: 2,
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 18,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  widget.tall_show ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-                const Text(
-                  ':الطول',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  widget.neck_weidthSow ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-                const Text(
-                  ':عرض الرقبة',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  widget.shoulder_weidthShow ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-                const Text(
-                  ':عرض الكتف',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  widget.chest_weidthShow ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-                const Text(
-                  ':عرض الصدر',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  widget.km_tallShow ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-                const Text(
-                  ':طول الكم',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 12,
-            )
-          ],
-        ),
+              ),
+              const Spacer(
+                flex: 2,
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                widget.tall_show ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+              const Text(
+                ':الطول',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                widget.neck_weidthSow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+              const Text(
+                ':عرض الرقبة',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                widget.shoulder_weidthShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+              const Text(
+                ':عرض الكتف',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                widget.chest_weidthShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+              const Text(
+                ':عرض الصدر',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                widget.km_tallShow ?? '',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+              const Text(
+                ':طول الكم',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors_and_Dimentions.font_color),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 12,
+          )
+        ],
       ),
     );
   }

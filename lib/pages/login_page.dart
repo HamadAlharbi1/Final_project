@@ -1,11 +1,14 @@
+
 import 'package:final_project/combonents/Constants/constants.dart';
 import 'package:final_project/pages/Cart_Page.dart';
 import 'package:final_project/pages/Home_Page.dart';
+
 import 'package:final_project/pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../combonents/text_field1.dart';
+import 'Home_Page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -57,30 +60,13 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(
-              height: 50,
+              height: 120,
             ),
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
               const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'البريد الإلكتروني',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors_and_Dimentions.fontcolor,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 8,
+                height: 34,
               ),
               TextField1(
-                prefix_icon: Icon(Icons.email_sharp),
-                prefix_icon_color: Colors_and_Dimentions.fontcolor,
                 Enable: true,
                 secure_text: false,
                 controll: emaillogin,
@@ -89,26 +75,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ]),
             const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'كلمة المرور',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Colors_and_Dimentions.fontcolor,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 8,
+              height: 34,
             ),
             TextField1(
-              prefix_icon: Icon(Icons.lock),
-              prefix_icon_color: Colors_and_Dimentions.fontcolor,
               Enable: true,
               secure_text: true,
               controll: passlogin,
@@ -118,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
             const Spacer(
               flex: 6,
             ),
+
             _isLoading
                 ? const Center(
                     child: CircularProgressIndicator(
@@ -163,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+
                   ),
             const SizedBox(
               height: 20,
@@ -182,10 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'ليس لديك حساب؟ سجل من هنا',
                   style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xff796763),
-                    fontWeight: FontWeight.w700,
-                  ),
+                      fontSize: 24, color: Color(0xff796763), fontWeight: FontWeight.w500, fontFamily: 'JosefinSans'),
                 ),
               ),
             ),

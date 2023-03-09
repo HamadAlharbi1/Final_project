@@ -151,7 +151,7 @@ class _tafseel_detailsState extends State<tafseel_details> {
                                                 borderRadius: BorderRadius.circular(12),
                                                 color: Colors_and_Dimentions.containercolor,
                                               ),
-                                              child: FP_textSTyle(
+                                              child: const FP_textSTyle(
                                                 text_content: 'نعم',
                                                 text_color: Colors_and_Dimentions.fontcolor,
                                               )),
@@ -167,7 +167,7 @@ class _tafseel_detailsState extends State<tafseel_details> {
                                                 borderRadius: BorderRadius.circular(12),
                                                 color: Colors_and_Dimentions.containercolor,
                                               ),
-                                              child: FP_textSTyle(
+                                              child: const FP_textSTyle(
                                                 text_content: 'لا',
                                                 text_color: Colors_and_Dimentions.fontcolor,
                                               )),
@@ -184,7 +184,7 @@ class _tafseel_detailsState extends State<tafseel_details> {
                               },
                             );
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.cancel_outlined,
                             size: 20,
                           ))
